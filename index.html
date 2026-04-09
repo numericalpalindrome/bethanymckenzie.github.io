@@ -1016,20 +1016,6 @@
 
   <div class="nav-divider"></div>
 
-  <!-- My Feminine Experience -->
-  <div class="nav-category">
-    <div class="nav-category-label" onclick="toggleCat('feminine'); showPage('feminine')" id="navlabel-feminine">
-      My Feminine Experience
-      <span class="nav-arrow" id="arrow-feminine">&#9654;</span>
-    </div>
-    <div class="nav-sub" id="sub-feminine">
-      <!-- ADD FEMININE EXPERIENCE ENTRIES HERE -->
-      <!-- Each entry gets its own page id, e.g. showPage('entry-softness') -->
-      <span class="nav-sub-item" onclick="showPage('feminine')">[Entry title]</span>
-      <span class="nav-sub-item" onclick="showPage('feminine')">[Entry title]</span>
-    </div>
-  </div>
-
   <!-- Cycle Touring -->
   <div class="nav-category">
     <div class="nav-category-label" onclick="toggleCat('cycle'); showPage('cycle')" id="navlabel-cycle">
@@ -1043,28 +1029,27 @@
     </div>
   </div>
 
-  <!-- Writing -->
+  <!-- Ambient Microscopy -->
   <div class="nav-category">
-    <div class="nav-category-label" onclick="toggleCat('writing'); showPage('writing')" id="navlabel-writing">
-      Writing
-      <span class="nav-arrow" id="arrow-writing">&#9654;</span>
+    <div class="nav-category-label" onclick="toggleCat('microscopy'); showPage('microscopy')" id="navlabel-microscopy">
+      Ambient Microscopy
+      <span class="nav-arrow" id="arrow-microscopy">&#9654;</span>
     </div>
-    <div class="nav-sub" id="sub-writing">
-      <span class="nav-sub-item" onclick="showPage('writing')">On Femininity</span>
-      <span class="nav-sub-item" onclick="showPage('writing')">Essay 2 — [Title]</span>
-      <span class="nav-sub-item" onclick="showPage('writing')">Essay 3 — [Title]</span>
+    <div class="nav-sub" id="sub-microscopy">
+      <span class="nav-sub-item" onclick="showPage('microscopy')">[Series title]</span>
+      <span class="nav-sub-item" onclick="showPage('microscopy')">[Series title]</span>
     </div>
   </div>
 
-  <!-- Nature & Fungi -->
+  <!-- Photography -->
   <div class="nav-category">
-    <div class="nav-category-label" onclick="toggleCat('nature'); showPage('nature')" id="navlabel-nature">
-      Nature &amp; Fungi
-      <span class="nav-arrow" id="arrow-nature">&#9654;</span>
+    <div class="nav-category-label" onclick="toggleCat('photography'); showPage('photography')" id="navlabel-photography">
+      Photography
+      <span class="nav-arrow" id="arrow-photography">&#9654;</span>
     </div>
-    <div class="nav-sub" id="sub-nature">
-      <span class="nav-sub-item" onclick="showPage('nature')">Fungi Portraits</span>
-      <span class="nav-sub-item" onclick="showPage('nature')">Series 2 — [Title]</span>
+    <div class="nav-sub" id="sub-photography">
+      <span class="nav-sub-item" onclick="showPage('photo-nature')">Nature</span>
+      <span class="nav-sub-item" onclick="showPage('photo-fungi')">Fungi</span>
     </div>
   </div>
 
@@ -1075,22 +1060,9 @@
       <span class="nav-arrow" id="arrow-sculpture">&#9654;</span>
     </div>
     <div class="nav-sub" id="sub-sculpture">
-      <span class="nav-sub-item" onclick="showPage('sculpture')">Work 1 — [Title]</span>
-      <span class="nav-sub-item" onclick="showPage('sculpture')">Work 2 — [Title]</span>
-      <span class="nav-sub-item" onclick="showPage('sculpture')">Work 3 — [Title]</span>
-    </div>
-  </div>
-
-  <!-- Journal -->
-  <div class="nav-category">
-    <div class="nav-category-label" onclick="toggleCat('journal'); showPage('journal')" id="navlabel-journal">
-      Journal
-      <span class="nav-arrow" id="arrow-journal">&#9654;</span>
-    </div>
-    <div class="nav-sub" id="sub-journal">
-      <span class="nav-sub-item active" onclick="showPage('entry-ethnobotanical')">Ethnobotanical Extravaganza</span>
-      <span class="nav-sub-item" onclick="showPage('journal')">Entry 1 — [Title]</span>
-      <span class="nav-sub-item" onclick="showPage('journal')">Entry 2 — [Title]</span>
+      <span class="nav-sub-item" onclick="showPage('sculpture-action')">Action Threshold</span>
+      <span class="nav-sub-item" onclick="showPage('sculpture')">[Work title]</span>
+      <span class="nav-sub-item" onclick="showPage('sculpture')">[Work title]</span>
     </div>
   </div>
 
@@ -1103,7 +1075,21 @@
     <a class="nav-bmc" href="https://buymeacoffee.com/YOUR_USERNAME" target="_blank">
       <span class="nav-bmc-dot"></span> Buy me a coffee
     </a>
-    <a class="nav-external" href="mailto:mckenziebethany8@gmail.com">
+    <div class="ndiv" style="height:0.5px;background:var(--ink-faint);margin:10px 0;"></div>
+    <a class="nav-external" href="https://www.instagram.com/scorpioid_cymes/" target="_blank">
+      Instagram <span class="ext-icon">&#8599;</span>
+    </a>
+    <a class="nav-external" href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">
+      Rogue Mycology Collective <span class="ext-icon">&#8599;</span>
+    </a>
+    <a class="nav-external" href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank">
+      iNaturalist <span class="ext-icon">&#8599;</span>
+    </a>
+    <a class="nav-external" href="https://mushroomobserver.org/observations?by_user=12073" target="_blank">
+      Mushroom Observer <span class="ext-icon">&#8599;</span>
+    </a>
+    <div class="ndiv" style="height:0.5px;background:var(--ink-faint);margin:10px 0;"></div>
+    <a class="nav-external" href="/cdn-cgi/l/email-protection#1479777f717a6e7d717671607c757a6d2c547379757d783a777b79">
       Contact <span class="ext-icon">&#8599;</span>
     </a>
     <div class="nav-bottom-copy">© 2025 Bethany McKenzie</div>
@@ -1122,10 +1108,7 @@
     <div class="home-intro">
       <h1>Bethany<br>McKenzie</h1>
 
-      <!-- EDIT your intro text below -->
-      <p>Artist, cyclist, naturalist, writer.<br>Drawn to thresholds — the edge of a forest, the end of a road, the border of what can be said.</p>
-
-      <p>This is a space for my work in all its forms: sculptures, cycle tours, fungi photographs, essays on femininity, and the quieter writing in between.</p>
+      <p>Artist, naturalist, scientist.</p>
 
       <div class="home-nav-hint">Use the menu to explore →</div>
 
@@ -1137,6 +1120,14 @@
           <div class="bmc-sub">Support this work</div>
         </div>
       </a>
+
+      <!-- SOCIAL LINKS -->
+      <div style="margin-top:28px; display:flex; flex-direction:column; gap:6px;">
+        <a href="https://www.instagram.com/scorpioid_cymes/" target="_blank" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Instagram — @scorpioid_cymes <span style="font-size:9px;">&#8599;</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Rogue Mycology Collective <span style="font-size:9px;">&#8599;</span></a>
+        <a href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">iNaturalist <span style="font-size:9px;">&#8599;</span></a>
+        <a href="https://mushroomobserver.org/observations?by_user=12073" target="_blank" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mushroom Observer <span style="font-size:9px;">&#8599;</span></a>
+      </div>
     </div>
   </section>
 
@@ -1166,23 +1157,11 @@
       <div class="feed-item-body">
         <div class="feed-item-meta">
           <span>[Date]</span>
-          <span class="feed-tag">Journal</span>
           <span class="feed-tag">Nature</span>
+          <span class="feed-tag">Community</span>
         </div>
         <div class="feed-item-title">Ethnobotanical Extravaganza</div>
         <div class="feed-item-excerpt">A forest gathering, a dome in the pines, and the plants that hold everything together.</div>
-      </div>
-    </div>
-
-    <div class="feed-item" onclick="showPage('page-feminine')">
-      <div class="feed-item-thumb"><span>Photo</span></div>
-      <div class="feed-item-body">
-        <div class="feed-item-meta">
-          <span>[Date]</span>
-          <span class="feed-tag">Feminine Experience</span>
-        </div>
-        <div class="feed-item-title">[Entry title]</div>
-        <div class="feed-item-excerpt">[One sentence that draws the reader in.]</div>
       </div>
     </div>
 
@@ -1228,103 +1207,40 @@
 
 
   <!-- ── MY FEMININE EXPERIENCE ── -->
-  <section id="page-feminine" class="page">
+  <!-- ── MY SKETCHBOOK ── -->
+  <!-- ── AMBIENT MICROSCOPY ── -->
+  <section id="page-microscopy" class="page">
     <div class="project-header">
-      <h2>My Feminine Experience</h2>
-      <p class="project-meta">Art, writing, collage &amp; song — turning lived experience into form</p>
+      <h2>Ambient Microscopy</h2>
+      <p class="project-meta">Images from the microscope</p>
     </div>
-
-    <div class="feminine-intro">
-      <p>[Optional introduction to this body of work. What does femininity mean to you? What are you exploring, questioning, sitting with? This can be changed any time — or left blank.]</p>
-    </div>
-
-    <!--
-      ══════════════════════════════════════════════════════
-      HOW AN EXPERIENCE ENTRY WORKS
-
-      Each entry below is a self-contained "experience page."
-      You can mix and match any of these content blocks:
-
-        <div class="block-text">          — prose / blog writing
-        <div class="block-photo">         — photograph with caption
-        <div class="block-collage">       — collage image
-        <div class="block-song">          — song / audio embed
-        <div class="block-quote">         — pull quote
-        <div class="block-divider">       — visual break between sections
-
-      Copy the TEMPLATE ENTRY below to create a new one.
-      ══════════════════════════════════════════════════════
-    -->
-
-    <!-- ════ TEMPLATE ENTRY — copy this whole block for each new experience ════ -->
-    <div class="entry">
-
-      <div class="exp-header">
-        <h2>[Experience title — e.g. The First Time I Wore Red]</h2>
-        <div class="exp-meta-row">
-          <span class="exp-date">[Date — e.g. March 2025]</span>
-          <span class="exp-tag">Feminine Experience</span>
-          <!-- Add more tags if it overlaps categories: -->
-          <!-- <span class="exp-tag">Writing</span> -->
-          <!-- <span class="exp-tag">Collage</span> -->
-        </div>
+    <p class="gallery-intro">Microscopy from the lab and field. Identifications and notes coming soon.</p>
+    <div class="masonry" id="gallery-microscopy">
+      <div class="masonry-item">
+        <div class="masonry-placeholder mid"><span>Microscopy</span></div>
+        <p class="m-caption">[Subject, magnification, date]</p>
       </div>
-
-      <!-- PROSE WRITING — your words about the experience -->
-      <div class="block-text">
-        <p>[Write about this experience. What happened? What did it feel like in your body? What did it make you think or remember? Let this be as raw or as crafted as you like.]</p>
-        <p>[A second paragraph. You can use <em>italics</em> for emphasis, inner voices, or things that felt significant.]</p>
+      <div class="masonry-item">
+        <div class="masonry-placeholder tall"><span>Microscopy</span></div>
+        <p class="m-caption">[Caption]</p>
       </div>
-
-      <!-- PHOTOGRAPH — replace .img-placeholder with <img src="your-photo.jpg"> -->
-      <div class="block-photo">
-        <div class="img-placeholder"><span>Photo</span></div>
-        <p class="img-caption">[Caption — place, date, or a note about the image]</p>
+      <div class="masonry-item">
+        <div class="masonry-placeholder wide"><span>Microscopy</span></div>
+        <p class="m-caption">[Caption]</p>
       </div>
-
-      <!-- PULL QUOTE — a line from your writing, or something someone said, or a fragment -->
-      <div class="block-quote">
-        <p>[A sentence that captures something essential about this experience.]</p>
+      <div class="masonry-item">
+        <div class="masonry-placeholder mid"><span>Microscopy</span></div>
+        <p class="m-caption">[Caption]</p>
       </div>
-
-      <!-- COLLAGE — replace .img-placeholder with <img src="your-collage.jpg"> -->
-      <div class="block-collage">
-        <div class="collage-label">Collage</div>
-        <div class="img-placeholder"><span>Collage image</span></div>
-        <p class="img-caption">[Title or note]</p>
+      <div class="masonry-item">
+        <div class="masonry-placeholder tall"><span>Microscopy</span></div>
+        <p class="m-caption">[Caption]</p>
       </div>
-
-      <!-- SONG / AUDIO — replace .song-placeholder with an <audio> tag or embed -->
-      <div class="block-song">
-        <div class="block-song-label">Song</div>
-        <div class="block-song-title">[Song title]</div>
-        <div class="block-song-sub">[Year · instrument or genre note]</div>
-        <!-- Replace this placeholder with:
-             <audio controls style="width:100%"><source src="your-song.mp3" type="audio/mpeg"></audio>
-             or a SoundCloud embed iframe -->
-        <div class="song-placeholder">
-          <div class="song-play-icon"><div class="song-play-triangle"></div></div>
-          Add audio file — see comment above
-        </div>
-      </div>
-
-    </div>
-    <!-- ════ END TEMPLATE ENTRY ════ -->
-
-    <!-- ════ ENTRY 2 — add more entries here ════ -->
-    <div class="entry">
-      <div class="exp-header">
-        <h2>[Second experience title]</h2>
-        <div class="exp-meta-row">
-          <span class="exp-date">[Date]</span>
-          <span class="exp-tag">Feminine Experience</span>
-        </div>
-      </div>
-      <div class="block-text">
-        <p>[Writing about this experience.]</p>
+      <div class="masonry-item">
+        <div class="masonry-placeholder wide"><span>Microscopy</span></div>
+        <p class="m-caption">[Caption]</p>
       </div>
     </div>
-
   </section>
 
 
@@ -1334,17 +1250,10 @@
       <h2>Cycle Touring</h2>
       <p class="project-meta">Photography from the road</p>
     </div>
-
     <p class="gallery-intro">Photos from three tours — Florida to Georgia, New Mexico to Colorado, Washington to California. Captions and writing coming soon.</p>
-
-    <!--
-      HOW TO ADD PHOTOS:
-      Copy a .masonry-item block. Replace the .masonry-placeholder div with:
-        <img src="your-photo.jpg" alt="description" onclick="openLightbox(this)">
-      Add a caption in .m-caption. Use tall/mid/wide class to control tile height until real photo loads.
-    -->
     <div class="masonry" id="gallery-cycle">
 
+      <!-- ── Florida to Georgia placeholders ── -->
       <div class="masonry-item">
         <div class="masonry-placeholder tall"><span>Florida to Georgia</span></div>
         <p class="m-caption">[Caption]</p>
@@ -1354,13 +1263,49 @@
         <p class="m-caption">[Caption]</p>
       </div>
       <div class="masonry-item">
-        <div class="masonry-placeholder mid"><span>New Mexico to Colorado</span></div>
+        <div class="masonry-placeholder wide"><span>Florida to Georgia</span></div>
         <p class="m-caption">[Caption]</p>
+      </div>
+
+      <!-- ── New Mexico to Colorado ── -->
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_55_58_PM.png"
+             alt="Goat standing at glass sliding door, juniper scrubland beyond, New Mexico"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">New Mexico. [Caption]</p>
       </div>
       <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>New Mexico to Colorado</span></div>
-        <p class="m-caption">[Caption]</p>
+        <img src="Screenshot_2026-04-08_at_7_56_15_PM.png"
+             alt="Two goats pressing faces through wire fence at sunset, farm in background"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">New Mexico. [Caption]</p>
       </div>
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_54_48_PM.png"
+             alt="Woman feeding large flock of black chickens in a dusty farmyard, pinyon-juniper landscape"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">New Mexico. [Caption]</p>
+      </div>
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_55_09_PM.png"
+             alt="Goat or ram skull wired to a weathered fence post, blue sky, New Mexico grassland"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">New Mexico. [Caption]</p>
+      </div>
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_55_28_PM.png"
+             alt="Large dark yak with long curved horns, close up, frost on the ground"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">New Mexico / Colorado. [Caption]</p>
+      </div>
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_55_46_PM.png"
+             alt="Metechi garlic bulbs curing on tiered metal rack, handwritten label"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">Metechi garlic curing. New Mexico. [Caption]</p>
+      </div>
+
+      <!-- ── Washington to California placeholders ── -->
       <div class="masonry-item">
         <div class="masonry-placeholder wide"><span>Washington to California</span></div>
         <p class="m-caption">[Caption]</p>
@@ -1373,61 +1318,55 @@
         <div class="masonry-placeholder tall"><span>Washington to California</span></div>
         <p class="m-caption">[Caption]</p>
       </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── PHOTOGRAPHY: NATURE ── -->
+  <section id="page-photo-nature" class="page">
+    <div class="project-header">
+      <h2>Nature</h2>
+      <p class="project-meta">Photography · field observations</p>
+    </div>
+    <p class="gallery-intro">Landscapes, plants, and close observations from the field. Captions and notes coming soon.</p>
+    <div class="masonry" id="gallery-photo-nature">
       <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Florida to Georgia</span></div>
+        <div class="masonry-placeholder tall"><span>Nature</span></div>
         <p class="m-caption">[Caption]</p>
       </div>
-
+      <div class="masonry-item">
+        <div class="masonry-placeholder wide"><span>Nature</span></div>
+        <p class="m-caption">[Caption]</p>
+      </div>
+      <div class="masonry-item">
+        <div class="masonry-placeholder mid"><span>Nature</span></div>
+        <p class="m-caption">[Caption]</p>
+      </div>
+      <div class="masonry-item">
+        <div class="masonry-placeholder tall"><span>Nature</span></div>
+        <p class="m-caption">[Caption]</p>
+      </div>
+      <div class="masonry-item">
+        <div class="masonry-placeholder wide"><span>Nature</span></div>
+        <p class="m-caption">[Caption]</p>
+      </div>
+      <div class="masonry-item">
+        <div class="masonry-placeholder mid"><span>Nature</span></div>
+        <p class="m-caption">[Caption]</p>
+      </div>
     </div>
   </section>
 
 
-  <!-- ── WRITING ── -->
-  <section id="page-writing" class="page">
+  <!-- ── PHOTOGRAPHY: FUNGI ── -->
+  <section id="page-photo-fungi" class="page">
     <div class="project-header">
-      <h2>Writing</h2>
-      <p class="project-meta">Essays &amp; reflections on femininity, nature, and the body</p>
+      <h2>Fungi</h2>
+      <p class="project-meta">Photography · mycological fieldwork</p>
     </div>
-
-    <div class="writing-list">
-
-      <!-- ════ WRITING PIECE — duplicate for each piece ════ -->
-      <div class="writing-item">
-        <div class="writing-item-meta">[Month Year] · Essay</div>
-        <div class="writing-item-title">[Essay Title — e.g. On Softness as Resistance]</div>
-        <div class="writing-item-excerpt">[One-line teaser or first sentence of the piece]</div>
-      </div>
-
-      <div class="writing-item">
-        <div class="writing-item-meta">[Month Year] · Essay</div>
-        <div class="writing-item-title">[Essay 2 Title]</div>
-        <div class="writing-item-excerpt">[Teaser]</div>
-      </div>
-
-      <div class="writing-item">
-        <div class="writing-item-meta">[Month Year] · Essay</div>
-        <div class="writing-item-title">[Essay 3 Title]</div>
-        <div class="writing-item-excerpt">[Teaser]</div>
-      </div>
-
-      <!-- Add more writing items here following the same pattern -->
-
-    </div>
-  </section>
-
-
-  <!-- ── NATURE & FUNGI ── -->
-  <!-- ── NATURE & FUNGI ── -->
-  <section id="page-nature" class="page">
-    <div class="project-header">
-      <h2>Nature &amp; Fungi</h2>
-      <p class="project-meta">Field photography</p>
-    </div>
-
-    <p class="gallery-intro">Specimens, landscapes, and close observations from the field. Identifications and notes coming soon.</p>
-
-    <div class="masonry" id="gallery-nature">
-
+    <p class="gallery-intro">Specimens and fruiting bodies from the field. Identifications and notes coming soon.</p>
+    <div class="masonry" id="gallery-photo-fungi">
       <div class="masonry-item">
         <div class="masonry-placeholder tall"><span>Fungi</span></div>
         <p class="m-caption">[Species, location]</p>
@@ -1437,11 +1376,11 @@
         <p class="m-caption">[Caption]</p>
       </div>
       <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Landscape</span></div>
+        <div class="masonry-placeholder wide"><span>Fungi</span></div>
         <p class="m-caption">[Caption]</p>
       </div>
       <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Plant</span></div>
+        <div class="masonry-placeholder tall"><span>Fungi</span></div>
         <p class="m-caption">[Caption]</p>
       </div>
       <div class="masonry-item">
@@ -1449,10 +1388,22 @@
         <p class="m-caption">[Caption]</p>
       </div>
       <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Landscape</span></div>
+        <div class="masonry-placeholder wide"><span>Fungi</span></div>
         <p class="m-caption">[Caption]</p>
       </div>
+    </div>
+  </section>
 
+
+  <!-- ── PHOTOGRAPHY landing (if top-level clicked) ── -->
+  <section id="page-photography" class="page">
+    <div class="project-header">
+      <h2>Photography</h2>
+      <p class="project-meta">Select a section from the menu</p>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap;">
+      <div onclick="showPage('photo-nature')" style="cursor:pointer;border:0.5px solid var(--ink-faint);padding:20px 28px;font-family:var(--serif);font-size:18px;color:var(--ink);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--ink-mid)'" onmouseout="this.style.borderColor='var(--ink-faint)'">Nature →</div>
+      <div onclick="showPage('photo-fungi')" style="cursor:pointer;border:0.5px solid var(--ink-faint);padding:20px 28px;font-family:var(--serif);font-size:18px;color:var(--ink);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--ink-mid)'" onmouseout="this.style.borderColor='var(--ink-faint)'">Fungi →</div>
     </div>
   </section>
 
@@ -1463,31 +1414,17 @@
       <h2>Sculpture</h2>
       <p class="project-meta">Objects, forms, materials</p>
     </div>
-
     <p class="gallery-intro">Practice situated at the intersection of biological process, research integration, and documentary art.</p>
-
     <div class="masonry" id="gallery-sculpture">
-
-      <!-- Action Threshold — fill in with actual photos -->
-      <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Action Threshold</span></div>
-        <p class="m-caption"><em>Action Threshold,</em> 2026 — Art About Agriculture, touring exhibition</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Action Threshold — detail</span></div>
-        <p class="m-caption">[Detail or installation view]</p>
-      </div>
       <div class="masonry-item">
         <div class="masonry-placeholder mid"><span>Work in progress</span></div>
-        <p class="m-caption">[Caption]</p>
+        <p class="m-caption">[Title, year, materials]</p>
       </div>
       <div class="masonry-item">
         <div class="masonry-placeholder tall"><span>Sculpture</span></div>
         <p class="m-caption">[Title, year, materials]</p>
       </div>
-
     </div>
-
     <div class="coming-soon">
       <div class="coming-soon-dot"></div>
       Videos — coming soon
@@ -1495,31 +1432,51 @@
   </section>
 
 
-  <!-- ── JOURNAL ── -->
-  <section id="page-journal" class="page">
+  <!-- ── ACTION THRESHOLD ── -->
+  <section id="page-sculpture-action" class="page">
     <div class="project-header">
-      <h2>Journal</h2>
-      <p class="project-meta">Personal writing &amp; notes</p>
+      <h2>Action Threshold</h2>
+      <p class="project-meta">Sculpture · 2026 · Art About Agriculture, Touring Exhibition</p>
     </div>
+    <p class="gallery-intro">[Write about this work here — the concept, materials, process, what the title means.]</p>
+    <div class="masonry" id="gallery-action-threshold">
 
-    <!-- ════ JOURNAL ENTRY — duplicate this block for each entry ════ -->
-    <div class="entry">
-      <div class="entry-title">[Entry title]</div>
-      <div class="entry-date">[Date — e.g. 14 March 2025]</div>
-      <div class="entry-body">
-        <p>[Write your journal entry here. This is for the quieter, more personal writing — observations, thoughts, things you noticed.]</p>
-        <p>[Another paragraph. You can make these as long or short as you like.]</p>
+      <!-- Field reference — pear branch with disease symptoms -->
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_47_41_PM.png"
+             alt="Field reference — pear branch showing disease symptoms, composite photo"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">Field reference — pear (<em>Pyrus</em> sp.), Southern Oregon Research and Extension Center. [Date]</p>
       </div>
-    </div>
 
-    <div class="entry">
-      <div class="entry-title">[Entry 2 title]</div>
-      <div class="entry-date">[Date]</div>
-      <div class="entry-body">
-        <p>[Journal entry text here.]</p>
+      <!-- Paper and wire armature — warm light, shadow -->
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_47_54_PM.png"
+             alt="Action Threshold — paper and wire armature stage, warm amber light"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption"><em>Action Threshold,</em> 2026 — paper, wire. Construction stage.</p>
       </div>
-    </div>
 
+      <!-- Finished sculpture — painted, blue-grey and white -->
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_48_55_PM.png"
+             alt="Action Threshold — finished sculpture, painted blue-grey and white, flowers and fruit forms"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption"><em>Action Threshold,</em> 2026 — finished. [Materials]</p>
+      </div>
+
+      <!-- Studio shot — dramatic light, grey drape -->
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_48_23_PM.png"
+             alt="Action Threshold — studio photograph, dramatic side lighting against grey drape"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption"><em>Action Threshold,</em> 2026 — studio view.</p>
+      </div>
+
+    </div>
+    <div class="block-text" style="margin-top:36px; max-width:560px;">
+      <p>[Write about this work — the relationship between the field reference and the sculpture, the materials, the title, what "action threshold" means in plant pathology and how you're using it here.]</p>
+    </div>
   </section>
 
 
@@ -1655,7 +1612,7 @@
     <div class="cv-section">
       <div class="cv-section-title">Contact</div>
       <div style="font-family:var(--serif); font-size:15px; color:var(--ink-mid); line-height:2;">
-        <a href="mailto:mckenziebethany8@gmail.com" style="color:var(--ink-mid); text-decoration:none;">mckenziebethany8@gmail.com</a><br>
+        <a href="/cdn-cgi/l/email-protection#523f3139373c283b373037263a333c2b6a12353f333b3e7c313d3f" style="color:var(--ink-mid); text-decoration:none;"><span class="__cf_email__" data-cfemail="335e5058565d495a565156475b525d4a0b73545e525a5f1d505c5e">[email&#160;protected]</span></a><br>
         <span>(541) 510-8554</span>
       </div>
     </div>
@@ -1823,15 +1780,14 @@
 </div>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── LIGHTBOX ──
+<script>
   function openLightbox(img) {
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
     const lbCap = document.getElementById('lightbox-caption');
     lbImg.src = img.src;
     lbImg.alt = img.alt;
-    const cap = img.closest('.masonry-item')?.querySelector('.m-caption');
+    const cap = img.closest('.masonry-item') && img.closest('.masonry-item').querySelector('.m-caption');
     lbCap.textContent = cap ? cap.textContent : '';
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -1840,46 +1796,46 @@
     document.getElementById('lightbox').classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 
-  // ── PAGE NAVIGATION ──
   function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    const target = document.getElementById('page-' + id) || document.getElementById(id);
+    document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+    var target = document.getElementById('page-' + id) || document.getElementById(id);
     if (target) {
       target.classList.add('active');
       document.getElementById('content').scrollTop = 0;
     }
-
-    // Clear all active states
-    document.querySelectorAll('.nav-plain-link, .nav-category-label').forEach(el => el.classList.remove('active'));
-
-    // Highlight matching nav element
-    const navMap = {
-      'feed':                   document.getElementById('navlink-feed'),
-      'feminine':               document.getElementById('navlabel-feminine'),
-      'cycle':                  document.getElementById('navlabel-cycle'),
-      'writing':                document.getElementById('navlabel-writing'),
-      'nature':                 document.getElementById('navlabel-nature'),
-      'sculpture':              document.getElementById('navlabel-sculpture'),
-      'journal':                document.getElementById('navlabel-journal'),
-      'entry-ethnobotanical':   document.getElementById('navlabel-journal'),
-      'cv':                     document.getElementById('navlink-cv'),
+    document.querySelectorAll('.nav-plain-link, .nav-category-label').forEach(function(el) { el.classList.remove('active'); });
+    var navMap = {
+      'feed':               document.getElementById('navlink-feed'),
+      'microscopy':         document.getElementById('navlabel-microscopy'),
+      'cycle':              document.getElementById('navlabel-cycle'),
+      'photography':        document.getElementById('navlabel-photography'),
+      'photo-nature':       document.getElementById('navlabel-photography'),
+      'photo-fungi':        document.getElementById('navlabel-photography'),
+      'sculpture':          document.getElementById('navlabel-sculpture'),
+      'sculpture-action':   document.getElementById('navlabel-sculpture'),
+      'cv':                 document.getElementById('navlink-cv'),
+      'entry-ethnobotanical': document.getElementById('navlink-feed'),
     };
     if (navMap[id]) navMap[id].classList.add('active');
   }
 
-  // ── ACCORDION ──
   function toggleCat(id) {
-    const sub = document.getElementById('sub-' + id);
-    const arrow = document.getElementById('arrow-' + id);
+    var sub = document.getElementById('sub-' + id);
+    var arrow = document.getElementById('arrow-' + id);
     if (!sub) return;
-    const isOpen = sub.classList.contains('open');
+    var isOpen = sub.classList.contains('open');
     sub.classList.toggle('open', !isOpen);
-    arrow.classList.toggle('open', !isOpen);
+    if (arrow) arrow.classList.toggle('open', !isOpen);
   }
 
-  // Close all sub-menus except cycle on load
-  ['feminine','writing','nature','sculpture','journal'].forEach(id => {
-    const sub = document.getElementById('sub-' + id);
-    const arrow = docume
+  ['microscopy','photography','sculpture'].forEach(function(id) {
+    var sub = document.getElementById('sub-' + id);
+    var arrow = document.getElementById('arrow-' + id);
+    if (sub) sub.classList.remove('open');
+    if (arrow) arrow.classList.remove('open');
+  });
+</script>
+</body>
+</html>
