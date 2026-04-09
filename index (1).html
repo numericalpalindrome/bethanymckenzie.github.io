@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bethany McKenzie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #2a2520;
+    --ink-mid: #6b6058;
+    --ink-light: #a89e95;
+    --ink-faint: #e8e2dc;
+    --parchment: #faf7f4;
+    --white: #ffffff;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', system-ui, sans-serif;
+    --nav-width: 230px;
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--parchment);
+    color: var(--ink);
+  }
+
+  body {
+    display: flex;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--ink-faint); border-radius: 2px; }
+
+  /* ══════════════════════════════
+     LEFT NAVIGATION
+  ══════════════════════════════ */
+  nav#sidebar {
+    width: var(--nav-width);
+    min-width: var(--nav-width);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    border-right: 0.5px solid var(--ink-faint);
+    background: var(--parchment);
+    padding: 36px 20px 36px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    z-index: 10;
+  }
+
+  .site-name {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 4px;
+    cursor: pointer;
+    line-height: 1.3;
+  }
+
+  .site-tagline {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 32px;
+  }
+
+  .nav-category {
+    margin-bottom: 2px;
+  }
+
+  .nav-category-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    font-weight: 400;
+    padding: 5px 0 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    transition: color 0.2s;
+  }
+
+  .nav-category-label:hover { color: var(--ink); }
+  .nav-category-label.active { color: var(--ink); }
+
+  .nav-arrow {
+    font-size: 7px;
+    transition: transform 0.25s;
+    color: var(--ink-light);
+  }
+  .nav-arrow.open { transform: rotate(90deg); }
+
+  .nav-sub {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+  }
+  .nav-sub.open { max-height: 2000px; }
+
+  .nav-sub-item {
+    display: block;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--ink-light);
+    padding: 3px 0 3px 10px;
+    cursor: pointer;
+    border-left: 1px solid transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.15s, border-color 0.15s;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+  }
+
+  .nav-sub-item:hover { color: var(--ink); }
+
+  .nav-sub-item.active {
+    color: var(--ink);
+    border-left-color: var(--ink-mid);
+  }
+
+  .nav-divider {
+    height: 0.5px;
+    background: var(--ink-faint);
+    margin: 14px 0;
+  }
+
+  .nav-plain-link {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    cursor: pointer;
+    padding: 5px 0;
+    display: block;
+    transition: color 0.2s;
+    font-weight: 400;
+  }
+  .nav-plain-link:hover { color: var(--ink); }
+  .nav-plain-link.active { color: var(--ink); }
+
+  .nav-external {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    cursor: pointer;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-external:hover { color: var(--ink); }
+  .nav-external .ext-icon { font-size: 8px; opacity: 0.6; }
+
+  .nav-bottom {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 0.5px solid var(--ink-faint);
+  }
+
+  .nav-bottom-copy {
+    font-size: 10px;
+    color: var(--ink-faint);
+    margin-top: 10px;
+  }
+
+
+  /* ══════════════════════════════
+     MAIN CONTENT
+  ══════════════════════════════ */
+  main#content {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 48px 56px 80px 56px;
+    max-width: 860px;
+  }
+
+  /* ── PAGE SECTIONS ── */
+  .page { display: none; animation: fadeIn 0.35s ease; }
+  .page.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── HOME ── */
+  .home-intro {
+    padding-top: 10vh;
+    max-width: 520px;
+  }
+
+  .home-intro h1 {
+    font-family: var(--serif);
+    font-size: 46px;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+
+  .home-intro p {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ink-mid);
+    margin-bottom: 16px;
+  }
+
+  .home-nav-hint {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 36px;
+  }
+
+  /* ── PROJECT PAGES ── */
+  .project-header {
+    margin-bottom: 36px;
+    border-bottom: 0.5px solid var(--ink-faint);
+    padding-bottom: 20px;
+  }
+
+  .project-header h2 {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    margin-bottom: 6px;
+  }
+
+  .project-meta {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  /* ── ENTRY (blog / journal post) ── */
+  .entry {
+    margin-bottom: 52px;
+    padding-bottom: 52px;
+    border-bottom: 0.5px solid var(--ink-faint);
+  }
+  .entry:last-child { border-bottom: none; }
+
+  .entry-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    line-height: 1.25;
+  }
+
+  .entry-date {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 18px;
+  }
+
+  .entry-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--ink-mid);
+    max-width: 580px;
+  }
+
+  .entry-body p { margin-bottom: 14px; }
+  .entry-body em { color: var(--ink); }
+
+  /* ── IMAGE PLACEHOLDER ── */
+  .img-block {
+    margin: 24px 0;
+  }
+
+  .img-placeholder {
+    width: 100%;
+    max-width: 640px;
+    background: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-light);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .img-placeholder::after {
+    content: '';
+    display: block;
+    padding-top: 66%;
+  }
+
+  .img-placeholder span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Replace .img-placeholder with a real <img> tag like:
+     <img src="your-photo.jpg" alt="description" style="width:100%;max-width:640px;display:block;"> */
+
+  .img-caption {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 8px;
+    max-width: 640px;
+  }
+
+  /* ── SCULPTURE GRID ── */
+  .sculpture-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .sculpture-item {}
+
+  .sculpture-item .img-placeholder::after { padding-top: 100%; }
+
+  .sculpture-item-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-mid);
+    margin-top: 8px;
+  }
+
+  .sculpture-item-sub {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 2px;
+  }
+
+  /* ── CV ── */
+  .cv-section {
+    margin-bottom: 40px;
+  }
+
+  .cv-section-title {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 0.5px solid var(--ink-faint);
+  }
+
+  .cv-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 12px;
+  }
+
+  .cv-year {
+    font-size: 11px;
+    color: var(--ink-light);
+    min-width: 50px;
+    padding-top: 2px;
+  }
+
+  .cv-detail {}
+
+  .cv-role {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 1px;
+  }
+
+  .cv-place {
+    font-size: 11px;
+    color: var(--ink-mid);
+  }
+
+  /* ── EXTERNAL LINKS ── */
+  .external-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 400px;
+  }
+
+  .ext-link-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border: 0.5px solid var(--ink-faint);
+    background: var(--white);
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.2s;
+    cursor: pointer;
+  }
+
+  .ext-link-card:hover { border-color: var(--ink-mid); }
+
+  .ext-link-name {
+    font-family: var(--serif);
+    font-size: 16px;
+  }
+
+  .ext-link-desc {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 2px;
+  }
+
+  .ext-arrow {
+    font-size: 14px;
+    color: var(--ink-light);
+  }
+
+  /* ── WRITING ── */
+  .writing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .writing-item {
+    padding: 18px 0;
+    border-bottom: 0.5px solid var(--ink-faint);
+    cursor: pointer;
+    transition: background 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .writing-item:first-child { border-top: 0.5px solid var(--ink-faint); }
+
+  .writing-item-title {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--ink);
+    transition: color 0.15s;
+  }
+  .writing-item:hover .writing-item-title { color: var(--ink-mid); }
+
+  .writing-item-meta {
+    font-size: 10px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .writing-item-excerpt {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-light);
+    margin-top: 4px;
+  }
+
+  /* ── TOUR ROUTE ── */
+  .tour-stat-row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+
+  .tour-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .tour-stat-value {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .tour-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  /* ── CHRONOLOGICAL FEED ── */
+  .feed-header {
+    margin-bottom: 40px;
+  }
+
+  .feed-header h2 {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+
+  .feed-intro {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-light);
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  .feed-item {
+    display: flex;
+    gap: 28px;
+    padding: 24px 0;
+    border-bottom: 0.5px solid var(--ink-faint);
+    cursor: pointer;
+    transition: opacity 0.15s;
+    align-items: flex-start;
+  }
+  .feed-item:first-of-type { border-top: 0.5px solid var(--ink-faint); }
+  .feed-item:hover { opacity: 0.7; }
+
+  .feed-item-thumb {
+    width: 90px;
+    min-width: 90px;
+    aspect-ratio: 1;
+    background: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    overflow: hidden;
+  }
+
+  .feed-item-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .feed-item-body { flex: 1; }
+
+  .feed-item-meta {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 5px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .feed-tag {
+    background: var(--ink-faint);
+    color: var(--ink-mid);
+    padding: 2px 8px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .feed-item-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+
+  .feed-item-excerpt {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+
+  /* ── EXPERIENCE / ENTRY PAGE ── */
+  .exp-header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--ink-faint);
+  }
+
+  .exp-header h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .exp-meta-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .exp-date {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .exp-tag {
+    background: var(--ink-faint);
+    color: var(--ink-mid);
+    padding: 3px 9px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── MEDIA BLOCKS inside an experience ── */
+
+  /* Written prose */
+  .block-text {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--ink-mid);
+    max-width: 580px;
+    margin: 28px 0;
+  }
+  .block-text p { margin-bottom: 16px; }
+  .block-text p:last-child { margin-bottom: 0; }
+  .block-text em { color: var(--ink); font-style: italic; }
+
+  /* Photo */
+  .block-photo { margin: 32px 0; }
+  .block-photo img,
+  .block-photo .img-placeholder {
+    width: 100%;
+    max-width: 640px;
+    display: block;
+  }
+  .block-photo .img-caption {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 8px;
+    max-width: 640px;
+  }
+
+  /* Collage — wider, overlapping feel */
+  .block-collage {
+    margin: 36px 0;
+    max-width: 640px;
+    position: relative;
+  }
+  .block-collage .collage-label {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 10px;
+  }
+  .block-collage .img-placeholder,
+  .block-collage img {
+    width: 100%;
+    display: block;
+  }
+  .block-collage .img-placeholder::after { padding-top: 75%; }
+
+  /* Song / audio */
+  .block-song {
+    margin: 36px 0;
+    max-width: 480px;
+    border: 0.5px solid var(--ink-faint);
+    padding: 20px 22px;
+    background: var(--white);
+  }
+  .block-song-label {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 10px;
+  }
+  .block-song-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .block-song-sub {
+    font-size: 10px;
+    color: var(--ink-light);
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+  /* To embed a song: replace the .song-placeholder div with:
+     <audio controls style="width:100%"><source src="your-song.mp3" type="audio/mpeg"></audio>
+     Or embed a SoundCloud/Bandcamp iframe here */
+  .song-placeholder {
+    height: 44px;
+    background: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 10px;
+    color: var(--ink-light);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .song-play-icon {
+    width: 26px;
+    height: 26px;
+    border: 0.5px solid var(--ink-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .song-play-triangle {
+    width: 0; height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid var(--ink-light);
+    margin-left: 2px;
+  }
+
+  /* Pull quote */
+  .block-quote {
+    margin: 40px 0;
+    padding-left: 24px;
+    border-left: 1px solid var(--ink-faint);
+    max-width: 480px;
+  }
+  .block-quote p {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  /* Section divider within entry */
+  .block-divider {
+    height: 0.5px;
+    background: var(--ink-faint);
+    margin: 48px 0;
+    max-width: 640px;
+  }
+
+  /* ── FEMININE EXPERIENCE category page ── */
+  .feminine-intro {
+    max-width: 520px;
+    margin-bottom: 48px;
+  }
+  .feminine-intro p {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--ink-mid);
+    margin-bottom: 14px;
+  }
+
+  .cv-desc {
+    font-size: 11px;
+    color: var(--ink-light);
+    line-height: 1.6;
+    margin-top: 3px;
+    max-width: 480px;
+  }
+
+  /* ── MASONRY PHOTO GALLERY ── */
+  .gallery-intro {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-light);
+    margin-bottom: 28px;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .masonry {
+    columns: 2;
+    column-gap: 12px;
+    max-width: 680px;
+  }
+
+  @media (min-width: 600px) { .masonry { columns: 3; } }
+
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masonry-item img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.2s;
+  }
+
+  .masonry-item:hover img { opacity: 0.88; }
+
+  .masonry-item .m-caption {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-light);
+    margin-top: 5px;
+    line-height: 1.4;
+  }
+
+  /* placeholder tile before real photo added */
+  .masonry-placeholder {
+    width: 100%;
+    background: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+  .masonry-placeholder.tall  { aspect-ratio: 2/3; }
+  .masonry-placeholder.mid   { aspect-ratio: 1/1; }
+  .masonry-placeholder.wide  { aspect-ratio: 4/3; }
+
+  /* lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(42,37,32,0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 88vh;
+    object-fit: contain;
+    display: block;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    font-size: 22px;
+    color: var(--ink-faint);
+    cursor: pointer;
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1;
+    user-select: none;
+  }
+  .lightbox-close:hover { color: #fff; }
+  .lightbox-caption {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-faint);
+    text-align: center;
+    max-width: 480px;
+  }
+
+  /* ── BUY ME A COFFEE ── */
+  .bmc-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border: 0.5px solid var(--ink-faint);
+    background: var(--white);
+    margin-bottom: 2px;
+    max-width: 340px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+  .bmc-bar:hover { border-color: var(--ink-mid); }
+  .bmc-icon { font-size: 18px; }
+  .bmc-text { font-family: var(--serif); font-size: 15px; color: var(--ink); }
+  .bmc-sub  { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-light); margin-top: 1px; }
+
+  /* nav bmc link */
+  .nav-bmc {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    cursor: pointer;
+    padding: 4px 0;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-bmc:hover { color: var(--ink); }
+  .nav-bmc-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #FFDD00;
+    flex-shrink: 0;
+  }
+
+  /* ── COMING SOON ── */
+  .coming-soon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border: 0.5px solid var(--ink-faint);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+
+  .coming-soon-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ink-faint);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    nav#sidebar {
+      width: 100%;
+      min-width: unset;
+      height: auto;
+      position: relative;
+      border-right: none;
+      border-bottom: 0.5px solid var(--ink-faint);
+    }
+    body { flex-direction: column; }
+    main#content { height: auto; padding: 32px 24px 60px; }
+    .sculpture-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     SIDEBAR NAV
+══════════════════════════════ -->
+<nav id="sidebar">
+
+  <div class="site-name" onclick="showPage('home')">Bethany McKenzie</div>
+  <div class="site-tagline">Artist &amp; Naturalist</div>
+
+  <!-- ALL ENTRIES feed -->
+  <span class="nav-plain-link" onclick="showPage('feed')" id="navlink-feed">All Entries</span>
+
+  <div class="nav-divider"></div>
+
+  <!-- Cycle Touring -->
+  <div class="nav-category">
+    <div class="nav-category-label" onclick="toggleCat('cycle'); showPage('cycle')" id="navlabel-cycle">
+      Cycle Touring
+      <span class="nav-arrow open" id="arrow-cycle">&#9654;</span>
+    </div>
+    <div class="nav-sub open" id="sub-cycle">
+      <span class="nav-sub-item" id="ni-cycle-fl" onclick="showPage('cycle-florida')">Florida to Georgia</span>
+      <span class="nav-sub-item" id="ni-cycle-nm" onclick="showPage('cycle-newmexico')">New Mexico to Colorado</span>
+      <span class="nav-sub-item" id="ni-cycle-wa" onclick="showPage('cycle-washington')">Washington to California</span>
+    </div>
+  </div>
+
+  <!-- Ambient Microscopy -->
+  <div class="nav-category">
+    <div class="nav-category-label" onclick="toggleCat('microscopy'); showPage('microscopy')" id="navlabel-microscopy">
+      Ambient Microscopy
+      <span class="nav-arrow" id="arrow-microscopy">&#9654;</span>
+    </div>
+    <div class="nav-sub" id="sub-microscopy">
+      <span class="nav-sub-item" onclick="showPage('microscopy')">[Series title]</span>
+      <span class="nav-sub-item" onclick="showPage('microscopy')">[Series title]</span>
+    </div>
+  </div>
+
+  <!-- Photography -->
+  <div class="nav-category">
+    <div class="nav-category-label" onclick="toggleCat('photography'); showPage('photography')" id="navlabel-photography">
+      Photography
+      <span class="nav-arrow" id="arrow-photography">&#9654;</span>
+    </div>
+    <div class="nav-sub" id="sub-photography">
+      <span class="nav-sub-item" id="ni-photo-nature" onclick="showPage('photo-nature')">Nature</span>
+      <span class="nav-sub-item" id="ni-photo-fungi" onclick="showPage('photo-fungi')">Fungi</span>
+    </div>
+  </div>
+
+  <!-- Sculpture -->
+  <div class="nav-category">
+    <div class="nav-category-label" onclick="toggleCat('sculpture'); showPage('sculpture')" id="navlabel-sculpture">
+      Sculpture
+      <span class="nav-arrow" id="arrow-sculpture">&#9654;</span>
+    </div>
+    <div class="nav-sub" id="sub-sculpture">
+      <span class="nav-sub-item" id="ni-action" onclick="showPage('sculpture-action')">Action Threshold</span>
+    </div>
+  </div>
+
+  <div class="nav-divider"></div>
+
+  <span class="nav-plain-link" onclick="showPage('cv')" id="navlink-cv">CV / About</span>
+
+  <div class="nav-bottom">
+    <!-- REPLACE YOUR_USERNAME with your actual buymeacoffee.com username -->
+    <a class="nav-bmc" href="https://buymeacoffee.com/YOUR_USERNAME" target="_blank">
+      <span class="nav-bmc-dot"></span> Buy me a coffee
+    </a>
+    <div class="ndiv" style="height:0.5px;background:var(--ink-faint);margin:10px 0;"></div>
+    <a class="nav-external" href="https://www.instagram.com/scorpioid_cymes/" target="_blank">
+      Instagram <span class="ext-icon">&#8599;</span>
+    </a>
+    <a class="nav-external" href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">
+      Rogue Mycology Collective <span class="ext-icon">&#8599;</span>
+    </a>
+    <a class="nav-external" href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank">
+      iNaturalist <span class="ext-icon">&#8599;</span>
+    </a>
+    <a class="nav-external" href="https://mushroomobserver.org/observations?by_user=12073" target="_blank">
+      Mushroom Observer <span class="ext-icon">&#8599;</span>
+    </a>
+    <div class="ndiv" style="height:0.5px;background:var(--ink-faint);margin:10px 0;"></div>
+    <a class="nav-external" href="/cdn-cgi/l/email-protection#1479777f717a6e7d717671607c757a6d2c547379757d783a777b79">
+      Contact <span class="ext-icon">&#8599;</span>
+    </a>
+    <div class="nav-bottom-copy">© 2025 Bethany McKenzie</div>
+  </div>
+
+</nav>
+
+
+<!-- ══════════════════════════════
+     MAIN CONTENT
+══════════════════════════════ -->
+<main id="content">
+
+  <!-- ── HOME ── -->
+  <section id="page-home" class="page active">
+    <div class="home-intro">
+      <h1>Bethany<br>McKenzie</h1>
+
+      <p>Artist, naturalist, scientist.</p>
+
+      <div class="home-nav-hint">Use the menu to explore →</div>
+
+      <!-- BUY ME A COFFEE — replace YOUR_USERNAME -->
+      <a class="bmc-bar" href="https://buymeacoffee.com/YOUR_USERNAME" target="_blank" style="margin-top:40px;">
+        <span class="bmc-icon">☕</span>
+        <div>
+          <div class="bmc-text">Buy me a coffee</div>
+          <div class="bmc-sub">Support this work</div>
+        </div>
+      </a>
+
+      <!-- SOCIAL LINKS -->
+      <div style="margin-top:28px; display:flex; flex-direction:column; gap:6px;">
+        <a href="https://www.instagram.com/scorpioid_cymes/" target="_blank" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Instagram — @scorpioid_cymes <span style="font-size:9px;">&#8599;</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Rogue Mycology Collective <span style="font-size:9px;">&#8599;</span></a>
+        <a href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">iNaturalist <span style="font-size:9px;">&#8599;</span></a>
+        <a href="https://mushroomobserver.org/observations?by_user=12073" target="_blank" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mushroom Observer <span style="font-size:9px;">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── ALL ENTRIES FEED ── -->
+  <section id="page-feed" class="page">
+    <div class="feed-header">
+      <h2>All Entries</h2>
+      <p class="feed-intro">A chronological record — experiences turned into art, writing, photographs, collages, and songs.</p>
+    </div>
+
+    <!--
+      HOW TO ADD AN ENTRY TO THE FEED:
+      Copy one .feed-item block below. Fill in:
+        - onclick="showPage('entry-YOURSLUG')" — links to the full experience page
+        - The .feed-tag — category label (e.g. Cycle Touring, Feminine Experience, Nature, Sculpture, Journal)
+        - The date, title, and a one-line excerpt
+        - Optional: replace .feed-item-thumb content with <img src="thumb.jpg"> for a real thumbnail
+
+      Then create the full experience page further down in the file (search for "ADD NEW EXPERIENCE PAGES HERE").
+      Entries should be listed newest first.
+    -->
+
+    <!-- ════ FEED ITEM — duplicate for each entry, newest first ════ -->
+    <div class="feed-item" onclick="showPage('entry-ethnobotanical')">
+      <div class="feed-item-thumb"><img src="Screenshot_2026-04-04_at_12_05_09_AM.png" alt="Group photo at dome structure in forest" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div class="feed-item-body">
+        <div class="feed-item-meta">
+          <span>[Date]</span>
+          <span class="feed-tag">Nature</span>
+          <span class="feed-tag">Community</span>
+        </div>
+        <div class="feed-item-title">Ethnobotanical Extravaganza</div>
+        <div class="feed-item-excerpt">A forest gathering, a dome in the pines, and the plants that hold everything together.</div>
+      </div>
+    </div>
+
+    <div class="feed-item" onclick="showPage('cycle')">
+      <div class="feed-item-thumb"><span>Photo</span></div>
+      <div class="feed-item-body">
+        <div class="feed-item-meta">
+          <span>[Date]</span>
+          <span class="feed-tag">Cycle Touring</span>
+        </div>
+        <div class="feed-item-title">Washington to California</div>
+        <div class="feed-item-excerpt">[Teaser line for this tour.]</div>
+      </div>
+    </div>
+
+    <div class="feed-item" onclick="showPage('cycle')">
+      <div class="feed-item-thumb"><span>Photo</span></div>
+      <div class="feed-item-body">
+        <div class="feed-item-meta">
+          <span>[Date]</span>
+          <span class="feed-tag">Cycle Touring</span>
+        </div>
+        <div class="feed-item-title">New Mexico to Colorado</div>
+        <div class="feed-item-excerpt">[Teaser line for this tour.]</div>
+      </div>
+    </div>
+
+    <div class="feed-item" onclick="showPage('cycle')">
+      <div class="feed-item-thumb"><span>Photo</span></div>
+      <div class="feed-item-body">
+        <div class="feed-item-meta">
+          <span>[Date]</span>
+          <span class="feed-tag">Cycle Touring</span>
+        </div>
+        <div class="feed-item-title">Florida to Georgia</div>
+        <div class="feed-item-excerpt">[Teaser line for this tour.]</div>
+      </div>
+    </div>
+
+    <!-- Add more feed items above this line, newest first -->
+
+  </section>
+
+
+  <!-- ── MY FEMININE EXPERIENCE ── -->
+  <!-- ── AMBIENT MICROSCOPY ── -->
+  <section id="page-microscopy" class="page">
+    <div class="project-header">
+      <h2>Ambient Microscopy</h2>
+      <p class="project-meta">Images from the microscope</p>
+    </div>
+    <p class="gallery-intro">Photos coming soon.</p>
+  </section>
+
+
+  <!-- ── CYCLE TOURING: LANDING ── -->
+  <section id="page-cycle" class="page">
+    <div class="project-header">
+      <h2>Cycle Touring</h2>
+      <p class="project-meta">Photography from the road</p>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap;">
+      <div onclick="showPage('cycle-florida')" style="cursor:pointer;border:0.5px solid var(--ink-faint);padding:20px 28px;font-family:var(--serif);font-size:18px;color:var(--ink);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--ink-mid)'" onmouseout="this.style.borderColor='var(--ink-faint)'">Florida to Georgia →</div>
+      <div onclick="showPage('cycle-newmexico')" style="cursor:pointer;border:0.5px solid var(--ink-faint);padding:20px 28px;font-family:var(--serif);font-size:18px;color:var(--ink);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--ink-mid)'" onmouseout="this.style.borderColor='var(--ink-faint)'">New Mexico to Colorado →</div>
+      <div onclick="showPage('cycle-washington')" style="cursor:pointer;border:0.5px solid var(--ink-faint);padding:20px 28px;font-family:var(--serif);font-size:18px;color:var(--ink);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--ink-mid)'" onmouseout="this.style.borderColor='var(--ink-faint)'">Washington to California →</div>
+    </div>
+  </section>
+
+
+  <!-- ── FLORIDA TO GEORGIA ── -->
+  <section id="page-cycle-florida" class="page">
+    <div class="project-header">
+      <h2>Florida to Georgia</h2>
+      <p class="project-meta">Cycle Touring · Southeast USA</p>
+    </div>
+    <p class="gallery-intro">Photos coming soon.</p>
+  </section>
+
+
+  <!-- ── NEW MEXICO TO COLORADO ── -->
+  <section id="page-cycle-newmexico" class="page">
+    <div class="project-header">
+      <h2>New Mexico to Colorado</h2>
+      <p class="project-meta">Cycle Touring · Southwest USA</p>
+    </div>
+    <p class="gallery-intro">Photos from the tour. Captions and writing coming soon.</p>
+    <div class="masonry" id="gallery-cycle-nm">
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_55_58_PM.png"
+             alt="Goat standing at glass sliding door, juniper scrubland beyond, New Mexico"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_56_15_PM.png"
+             alt="Two goats pressing faces through wire fence at sunset, farm in background"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_54_48_PM.png"
+             alt="Woman feeding large flock of black chickens in a dusty farmyard, pinyon-juniper landscape"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_55_09_PM.png"
+             alt="Goat or ram skull wired to a weathered fence post, blue sky, New Mexico grassland"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_55_28_PM.png"
+             alt="Large dark yak with long curved horns, close up, frost on the ground"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_55_46_PM.png"
+             alt="Metechi garlic bulbs curing on tiered metal rack, handwritten label"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">Metechi garlic curing. Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── WASHINGTON TO CALIFORNIA ── -->
+  <section id="page-cycle-washington" class="page">
+    <div class="project-header">
+      <h2>Washington to California</h2>
+      <p class="project-meta">Cycle Touring · Pacific Coast</p>
+    </div>
+    <p class="gallery-intro">Photos coming soon.</p>
+  </section>
+
+
+  <!-- ── PHOTOGRAPHY: NATURE ── -->
+  <section id="page-photo-nature" class="page">
+    <div class="project-header">
+      <h2>Nature</h2>
+      <p class="project-meta">Photography · field observations</p>
+    </div>
+    <p class="gallery-intro">Photos coming soon.</p>
+  </section>
+
+
+  <!-- ── PHOTOGRAPHY: FUNGI ── -->
+  <section id="page-photo-fungi" class="page">
+    <div class="project-header">
+      <h2>Fungi</h2>
+      <p class="project-meta">Photography · mycological fieldwork</p>
+    </div>
+    <p class="gallery-intro">Photos coming soon.</p>
+  </section>
+
+
+  <!-- ── PHOTOGRAPHY landing (if top-level clicked) ── -->
+  <section id="page-photography" class="page">
+    <div class="project-header">
+      <h2>Photography</h2>
+      <p class="project-meta">Select a section from the menu</p>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap;">
+      <div onclick="showPage('photo-nature')" style="cursor:pointer;border:0.5px solid var(--ink-faint);padding:20px 28px;font-family:var(--serif);font-size:18px;color:var(--ink);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--ink-mid)'" onmouseout="this.style.borderColor='var(--ink-faint)'">Nature →</div>
+      <div onclick="showPage('photo-fungi')" style="cursor:pointer;border:0.5px solid var(--ink-faint);padding:20px 28px;font-family:var(--serif);font-size:18px;color:var(--ink);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--ink-mid)'" onmouseout="this.style.borderColor='var(--ink-faint)'">Fungi →</div>
+    </div>
+  </section>
+
+
+  <!-- ── SCULPTURE ── -->
+  <section id="page-sculpture" class="page">
+    <div class="project-header">
+      <h2>Sculpture</h2>
+      <p class="project-meta">Objects, forms, materials</p>
+    </div>
+    <p class="gallery-intro">Practice situated at the intersection of biological process, research integration, and documentary art.</p>
+    <div class="coming-soon">
+      <div class="coming-soon-dot"></div>
+      Videos — coming soon
+    </div>
+  </section>
+
+
+  <!-- ── ACTION THRESHOLD ── -->
+  <section id="page-sculpture-action" class="page">
+    <div class="project-header">
+      <h2>Action Threshold</h2>
+      <p class="project-meta">Sculpture · 2026 · Art About Agriculture, Touring Exhibition</p>
+    </div>
+    <p class="gallery-intro">[Write about this work here — the concept, materials, process, what the title means.]</p>
+    <div class="masonry" id="gallery-action-threshold">
+
+      <!-- Field reference — pear branch with disease symptoms -->
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_47_41_PM.png"
+             alt="Field reference — pear branch showing disease symptoms, composite photo"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption">Field reference — pear (<em>Pyrus</em> sp.), Southern Oregon Research and Extension Center. [Date]</p>
+      </div>
+
+      <!-- Paper and wire armature — warm light, shadow -->
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_47_54_PM.png"
+             alt="Action Threshold — paper and wire armature stage, warm amber light"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption"><em>Action Threshold,</em> 2026 — paper, wire. Construction stage.</p>
+      </div>
+
+      <!-- Finished sculpture — painted, blue-grey and white -->
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_48_55_PM.png"
+             alt="Action Threshold — finished sculpture, painted blue-grey and white, flowers and fruit forms"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption"><em>Action Threshold,</em> 2026 — finished. [Materials]</p>
+      </div>
+
+      <!-- Studio shot — dramatic light, grey drape -->
+      <div class="masonry-item">
+        <img src="Screenshot_2026-04-08_at_7_48_23_PM.png"
+             alt="Action Threshold — studio photograph, dramatic side lighting against grey drape"
+             style="width:100%;display:block;" onclick="openLightbox(this)">
+        <p class="m-caption"><em>Action Threshold,</em> 2026 — studio view.</p>
+      </div>
+
+    </div>
+    <div class="block-text" style="margin-top:36px; max-width:560px;">
+      <p>[Write about this work — the relationship between the field reference and the sculpture, the materials, the title, what "action threshold" means in plant pathology and how you're using it here.]</p>
+    </div>
+  </section>
+
+
+  <!-- ── CV / ABOUT ── -->
+  <section id="page-cv" class="page">
+    <div class="project-header">
+      <h2>Bethany McKenzie</h2>
+      <p class="project-meta">Medford, Oregon</p>
+    </div>
+
+    <!-- BIO -->
+    <div class="entry-body" style="margin-bottom:48px; max-width:520px;">
+      <p>Practice situated at the intersection of biological process, research integration, and documentary art. Based in Medford, Oregon.</p>
+    </div>
+
+    <!-- RESEARCH INTERESTS -->
+    <div class="cv-section">
+      <div class="cv-section-title">Research Interests</div>
+      <div style="font-family:var(--serif); font-size:15px; color:var(--ink-mid); line-height:1.8; max-width:520px;">
+        Genomics &middot; Phylogenetics &middot; Transcriptomics &middot; Fungal Biodiversity &middot; Secondary Metabolites &middot; Host–Microbe Interactions
+      </div>
+    </div>
+
+    <!-- WORK EXPERIENCE -->
+    <div class="cv-section">
+      <div class="cv-section-title">Work Experience</div>
+
+      <div class="cv-row">
+        <div class="cv-year">2024–</div>
+        <div class="cv-detail">
+          <div class="cv-role">Biology Technician I</div>
+          <div class="cv-place">Southern Oregon Research and Extension Center (SOREC) · Central Point, OR</div>
+          <div class="cv-desc">Applied plant pathology research on pear and grape pathogens. Fungal culturing, microscopy-based identification, DNA extraction, PCR workflows. Public Pesticide Applicator License.</div>
+        </div>
+      </div>
+
+      <div class="cv-row">
+        <div class="cv-year">2023–24</div>
+        <div class="cv-detail">
+          <div class="cv-role">Undergraduate Research Assistant</div>
+          <div class="cv-place">Southern Oregon Research and Extension Center (SOREC) · Central Point, OR</div>
+          <div class="cv-desc">Plant pathology research — sample collection, preparation, and data organisation.</div>
+        </div>
+      </div>
+
+      <div class="cv-row">
+        <div class="cv-year">2021–24</div>
+        <div class="cv-detail">
+          <div class="cv-role">Biology &amp; Chemistry Stockroom Assistant</div>
+          <div class="cv-place">Southern Oregon University · Ashland, OR</div>
+          <div class="cv-desc">Prepared laboratory equipment for undergraduate biology and chemistry courses.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+
+      <div class="cv-row">
+        <div class="cv-year">2024</div>
+        <div class="cv-detail">
+          <div class="cv-role">Bachelor of Science in Biology · Minor in Chemistry</div>
+          <div class="cv-place">Southern Oregon University · Ashland, OR</div>
+          <div class="cv-desc">Capstone Thesis: Trait variation in an endemic grasshopper species across an elevation gradient, including analysis of gut microbial diversity.</div>
+          <div class="cv-desc" style="margin-top:6px;">Relevant coursework: Ecology, Genetics, Evolution, Microbiology, Bioinformatics, Environmental Physiology, Vascular Plant ID / Field Botany, Organic Chemistry, Organic Spectroscopy.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXHIBITIONS & ARTISTIC PRACTICE -->
+    <div class="cv-section">
+      <div class="cv-section-title">Exhibitions &amp; Artistic Practice</div>
+
+      <div class="cv-row">
+        <div class="cv-year">2026</div>
+        <div class="cv-detail">
+          <div class="cv-role">Action Threshold</div>
+          <div class="cv-place">Art About Agriculture — Touring Exhibition</div>
+          <div class="cv-desc">Sculpture.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNICAL SKILLS -->
+    <div class="cv-section">
+      <div class="cv-section-title">Technical Skills</div>
+
+      <div class="cv-row">
+        <div class="cv-year" style="min-width:110px; font-size:10px;">Molecular Biology</div>
+        <div class="cv-detail">
+          <div class="cv-desc">DNA extraction, PCR amplification, gel electrophoresis, sample preparation</div>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-year" style="min-width:110px; font-size:10px;">Microbiology &amp; Mycology</div>
+        <div class="cv-detail">
+          <div class="cv-desc">Fungal isolation and culturing, bacterial culturing, sterile technique, microscopy</div>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-year" style="min-width:110px; font-size:10px;">Field Research</div>
+        <div class="cv-detail">
+          <div class="cv-desc">Plant disease monitoring, experimental plot work, specimen collection, phenological observation</div>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-year" style="min-width:110px; font-size:10px;">Compliance</div>
+        <div class="cv-detail">
+          <div class="cv-desc">Pesticide applicator licensure, laboratory safety protocols, inventory management</div>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-year" style="min-width:110px; font-size:10px;">Computing</div>
+        <div class="cv-detail">
+          <div class="cv-desc">Microsoft Office, Google Workspace, Dropbox, Zoom</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIVITIES -->
+    <div class="cv-section">
+      <div class="cv-section-title">Activities</div>
+      <div class="cv-row">
+        <div class="cv-detail">
+          <div class="cv-desc">Co-revived SOU Biology Club — organised plant sales and field trips; received leadership recognition.</div>
+          <div class="cv-desc" style="margin-top:6px;">Assisted with immunofluorescence assays on <em>C. elegans</em> in the LaBonty Lab.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="cv-section">
+      <div class="cv-section-title">Contact</div>
+      <div style="font-family:var(--serif); font-size:15px; color:var(--ink-mid); line-height:2;">
+        <a href="/cdn-cgi/l/email-protection#523f3139373c283b373037263a333c2b6a12353f333b3e7c313d3f" style="color:var(--ink-mid); text-decoration:none;"><span class="__cf_email__" data-cfemail="335e5058565d495a565156475b525d4a0b73545e525a5f1d505c5e">[email&#160;protected]</span></a><br>
+        <span>(541) 510-8554</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── ETHNOBOTANICAL EXTRAVAGANZA — diary entry ── -->
+  <section id="page-entry-ethnobotanical" class="page">
+
+    <div class="exp-header">
+      <h2>Ethnobotanical Extravaganza</h2>
+      <div class="exp-meta-row">
+        <span class="exp-date">Hostel in the Forest · Brunswick, Georgia</span>
+        <span class="exp-tag">Journal</span>
+        <span class="exp-tag">Nature</span>
+        <span class="exp-tag">Community</span>
+      </div>
+    </div>
+
+    <!-- ── ARRIVAL ── -->
+    <div class="block-photo">
+      <img src="Screenshot_2026-04-04_at_12_05_09_AM.png"
+           alt="Group gathered outside the wooden dome structure in the forest"
+           style="width:100%;max-width:640px;display:block;">
+      <p class="img-caption">The Ethnobotanical Extravaganza community gathered outside the dome. Hostel in the Forest, Brunswick, Georgia.</p>
+    </div>
+
+    <div class="block-text">
+      <p>[Write about arriving at the Hostel in the Forest. What was the first thing you noticed — the smell of the pines, the sound of the group, the feeling of pulling up with Nathan, Patrice, and Julian? Set the scene of this place.]</p>
+      <p>[What drew you to this gathering? What did you expect, and what surprised you?]</p>
+    </div>
+
+    <!-- ── THE PLANT WALK ── -->
+    <div class="block-divider"></div>
+
+    <!-- Guide talking to group in the palmetto scrub -->
+    <div class="block-photo">
+      <img src="Screenshot_2026-04-04_at_12_06_13_AM.png"
+           alt="Plant walk guide speaking to the group in the saw palmetto, live oak, and Spanish moss"
+           style="width:100%;max-width:640px;display:block;">
+      <p class="img-caption">The plant walk — our guide in the saw palmetto and live oak. [His name, if you remember it.]</p>
+    </div>
+
+    <!-- Wide group on the plant walk, dead tree, blue sky -->
+    <div class="block-photo">
+      <img src="Screenshot_2026-04-04_at_12_06_55_AM.png"
+           alt="Group on the plant walk, snag tree and Spanish moss against blue sky"
+           style="width:100%;max-width:640px;display:block;">
+      <p class="img-caption">Out in the open — a bleached snag, Spanish moss, the group listening. [Location on the property.]</p>
+    </div>
+
+    <div class="block-text">
+      <p>[Write about the plant walk. What plants did you learn? Who was teaching, and what did their knowledge feel like to receive? What did it mean to be in a group of people all paying attention to the same small living thing?]</p>
+    </div>
+
+    <!-- The salt plant -->
+    <div class="block-photo">
+      <img src="Screenshot_2026-04-04_at_12_05_58_AM.png"
+           alt="Close-up of jointed succulent green stems — Salicornia, a semi-aquatic salt-substitute plant"
+           style="width:100%;max-width:480px;display:block;">
+      <p class="img-caption"><em>Salicornia</em> sp. (glasswort / sea pickle) — semi-aquatic, coastal, and salty to the taste. A natural salt substitute.</p>
+    </div>
+
+    <div class="block-text">
+      <p>[Write about tasting this plant. What did it feel like to put something wild in your mouth and have it taste like the sea? What does it mean that a plant can replace salt — something so essential, so ancient in human life?]</p>
+    </div>
+
+    <!-- Beach scene — people after swimming, laughter, phones -->
+    <div class="block-photo">
+      <img src="Screenshot_2026-04-04_at_12_06_40_AM.png"
+           alt="People on the beach — laughter, someone holding up a phone, live oaks behind"
+           style="width:100%;max-width:640px;display:block;">
+      <p class="img-caption">After the water. Nathan, Patrice, Julian — [add anyone else you want to name here].</p>
+    </div>
+
+    <!-- ── LIVING IN THE HOSTEL ── -->
+    <div class="block-divider"></div>
+
+    <!-- Long dormitory corridor — person resting on bunk -->
+    <div class="block-photo">
+      <img src="Screenshot_2026-04-04_at_12_05_44_AM.png"
+           alt="Person lying on a bunk in the long open dormitory, arm raised, writing on the ceiling visible, forest through the screens"
+           style="width:100%;max-width:640px;display:block;">
+      <p class="img-caption">The long dormitory — writing on the ceiling, forest through the screens, [name] resting in the afternoon.</p>
+    </div>
+
+    <!-- The bunk dormitory from before -->
+    <div class="block-photo">
+      <img src="Screenshot_2026-04-04_at_12_07_04_AM.png"
+           alt="Interior of the communal sleeping space — bunk beds, hammock, painted floor, forest light"
+           style="width:100%;max-width:640px;display:block;">
+      <p class="img-caption">The communal space at rest — painted floor, hammock strung between posts, light coming through the trees.</p>
+    </div>
+
+    <div class="block-text">
+      <p>[Write about what it was like to sleep here — with strangers and friends in an open space, no walls between you and the outside. Did you sleep well or badly? What did you hear at night?]</p>
+    </div>
+
+    <!-- The mural -->
+    <div class="block-photo">
+      <img src="Screenshot_2026-04-04_at_12_06_05_AM.png"
+           alt="Painted mural on bunk wall — waves with the words To Feel Is To Love"
+           style="width:100%;max-width:560px;display:block;">
+      <p class="img-caption">Painted on the bunk wall — <em>To feel is to love.</em></p>
+    </div>
+
+    <div class="block-quote">
+      <p>To feel is to love.</p>
+    </div>
+
+    <!-- ── THE PEOPLE ── -->
+    <div class="block-divider"></div>
+
+    <!-- Self portraits — two moods -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:560px;margin:32px 0;">
+      <div>
+        <img src="Screenshot_2026-04-04_at_12_05_20_AM.png"
+             alt="Bethany smiling, braids, inside the wooden structure"
+             style="width:100%;display:block;">
+        <p class="img-caption" style="margin-top:6px;">Inside the structure.</p>
+      </div>
+      <div>
+        <img src="Screenshot_2026-04-04_at_12_05_26_AM.png"
+             alt="Bethany, serious expression, braids, on the open porch"
+             style="width:100%;display:block;">
+        <p class="img-caption" style="margin-top:6px;">On the porch.</p>
+      </div>
+    </div>
+
+    <!-- The forest -->
+    <div class="block-photo">
+      <img src="Screenshot_2026-04-04_at_12_05_35_AM.png"
+           alt="Longleaf pine forest — tall straight trunks, understory palms and ferns, soft grey light"
+           style="width:100%;max-width:640px;display:block;">
+      <p class="img-caption">The forest behind the hostel — longleaf pine, saw palmetto, bracken fern.</p>
+    </div>
+
+    <div class="block-text">
+      <p>[Write about what the forest felt like to walk through. Was it different from other forests you know? What did being around Nathan, Patrice, and Julian add to the experience — or change about it?]</p>
+    </div>
+
+    <!-- ── LEAVING ── -->
+    <div class="block-divider"></div>
+
+    <div class="block-photo">
+      <img src="Screenshot_2026-04-04_at_12_05_51_AM.png"
+           alt="Self-portrait in the car on the way home, seatbelt on"
+           style="width:100%;max-width:400px;display:block;">
+      <p class="img-caption">On the way home.</p>
+    </div>
+
+    <div class="block-text">
+      <p>[Closing reflection. What do you carry from this place — the salt on your tongue, the mural, the people, the feeling of sleeping in a room open to the trees? What does it mean to gather around plants, around knowledge, around the living world?]</p>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- LIGHTBOX — click any gallery photo to enlarge -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">&#x2715;</span>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+
+<script>
+  function openLightbox(img) {
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbCap = document.getElementById('lightbox-caption');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    const cap = img.closest('.masonry-item') && img.closest('.masonry-item').querySelector('.m-caption');
+    lbCap.textContent = cap ? cap.textContent : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+    var target = document.getElementById('page-' + id) || document.getElementById(id);
+    if (target) {
+      target.classList.add('active');
+      document.getElementById('content').scrollTop = 0;
+    }
+    document.querySelectorAll('.nav-plain-link, .nav-category-label').forEach(function(el) { el.classList.remove('active'); });
+    var navMap = {
+      'feed':               document.getElementById('navlink-feed'),
+      'microscopy':         document.getElementById('navlabel-microscopy'),
+      'cycle':              document.getElementById('navlabel-cycle'),
+      'cycle-florida':      document.getElementById('navlabel-cycle'),
+      'cycle-newmexico':    document.getElementById('navlabel-cycle'),
+      'cycle-washington':   document.getElementById('navlabel-cycle'),
+      'photography':        document.getElementById('navlabel-photography'),
+      'photo-nature':       document.getElementById('navlabel-photography'),
+      'photo-fungi':        document.getElementById('navlabel-photography'),
+      'sculpture':          document.getElementById('navlabel-sculpture'),
+      'sculpture-action':   document.getElementById('navlabel-sculpture'),
+      'cv':                 document.getElementById('navlink-cv'),
+      'entry-ethnobotanical': document.getElementById('navlink-feed'),
+    };
+    if (navMap[id]) navMap[id].classList.add('active');
+
+    document.querySelectorAll('.nav-sub-item').forEach(function(el) { el.classList.remove('active'); });
+    var subMap = {
+      'cycle-florida':    'ni-cycle-fl',
+      'cycle-newmexico':  'ni-cycle-nm',
+      'cycle-washington': 'ni-cycle-wa',
+      'photo-nature':     'ni-photo-nature',
+      'photo-fungi':      'ni-photo-fungi',
+      'sculpture-action': 'ni-action',
+    };
+    if (subMap[id] && document.getElementById(subMap[id])) {
+      document.getElementById(subMap[id]).classList.add('active');
+    }
+  }
+
+  function toggleCat(id) {
+    var sub = document.getElementById('sub-' + id);
+    var arrow = document.getElementById('arrow-' + id);
+    if (!sub) return;
+    var isOpen = sub.classList.contains('open');
+    sub.classList.toggle('open', !isOpen);
+    if (arrow) arrow.classList.toggle('open', !isOpen);
+  }
+
+  ['microscopy','photography','sculpture'].forEach(function(id) {
+    var sub = document.getElementById('sub-' + id);
+    var arrow = document.getElementById('arrow-' + id);
+    if (sub) sub.classList.remove('open');
+    if (arrow) arrow.classList.remove('open');
+  });
+</script>
+</body>
+</html>
