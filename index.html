@@ -1023,9 +1023,9 @@
       <span class="nav-arrow open" id="arrow-cycle">&#9654;</span>
     </div>
     <div class="nav-sub open" id="sub-cycle">
-      <span class="nav-sub-item" onclick="showPage('cycle')">Florida to Georgia</span>
-      <span class="nav-sub-item" onclick="showPage('cycle')">New Mexico to Colorado</span>
-      <span class="nav-sub-item" onclick="showPage('cycle')">Washington to California</span>
+      <span class="nav-sub-item" id="ni-cycle-fl" onclick="showPage('cycle-florida')">Florida to Georgia</span>
+      <span class="nav-sub-item" id="ni-cycle-nm" onclick="showPage('cycle-newmexico')">New Mexico to Colorado</span>
+      <span class="nav-sub-item" id="ni-cycle-wa" onclick="showPage('cycle-washington')">Washington to California</span>
     </div>
   </div>
 
@@ -1048,8 +1048,8 @@
       <span class="nav-arrow" id="arrow-photography">&#9654;</span>
     </div>
     <div class="nav-sub" id="sub-photography">
-      <span class="nav-sub-item" onclick="showPage('photo-nature')">Nature</span>
-      <span class="nav-sub-item" onclick="showPage('photo-fungi')">Fungi</span>
+      <span class="nav-sub-item" id="ni-photo-nature" onclick="showPage('photo-nature')">Nature</span>
+      <span class="nav-sub-item" id="ni-photo-fungi" onclick="showPage('photo-fungi')">Fungi</span>
     </div>
   </div>
 
@@ -1060,9 +1060,7 @@
       <span class="nav-arrow" id="arrow-sculpture">&#9654;</span>
     </div>
     <div class="nav-sub" id="sub-sculpture">
-      <span class="nav-sub-item" onclick="showPage('sculpture-action')">Action Threshold</span>
-      <span class="nav-sub-item" onclick="showPage('sculpture')">[Work title]</span>
-      <span class="nav-sub-item" onclick="showPage('sculpture')">[Work title]</span>
+      <span class="nav-sub-item" id="ni-action" onclick="showPage('sculpture-action')">Action Threshold</span>
     </div>
   </div>
 
@@ -1207,67 +1205,48 @@
 
 
   <!-- ── MY FEMININE EXPERIENCE ── -->
-  <!-- ── MY SKETCHBOOK ── -->
   <!-- ── AMBIENT MICROSCOPY ── -->
   <section id="page-microscopy" class="page">
     <div class="project-header">
       <h2>Ambient Microscopy</h2>
       <p class="project-meta">Images from the microscope</p>
     </div>
-    <p class="gallery-intro">Microscopy from the lab and field. Identifications and notes coming soon.</p>
-    <div class="masonry" id="gallery-microscopy">
-      <div class="masonry-item">
-        <div class="masonry-placeholder mid"><span>Microscopy</span></div>
-        <p class="m-caption">[Subject, magnification, date]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Microscopy</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Microscopy</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder mid"><span>Microscopy</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Microscopy</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Microscopy</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-    </div>
+    <p class="gallery-intro">Photos coming soon.</p>
   </section>
 
 
-  <!-- ── CYCLE TOURING ── -->
+  <!-- ── CYCLE TOURING: LANDING ── -->
   <section id="page-cycle" class="page">
     <div class="project-header">
       <h2>Cycle Touring</h2>
       <p class="project-meta">Photography from the road</p>
     </div>
-    <p class="gallery-intro">Photos from three tours — Florida to Georgia, New Mexico to Colorado, Washington to California. Captions and writing coming soon.</p>
-    <div class="masonry" id="gallery-cycle">
+    <div style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap;">
+      <div onclick="showPage('cycle-florida')" style="cursor:pointer;border:0.5px solid var(--ink-faint);padding:20px 28px;font-family:var(--serif);font-size:18px;color:var(--ink);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--ink-mid)'" onmouseout="this.style.borderColor='var(--ink-faint)'">Florida to Georgia →</div>
+      <div onclick="showPage('cycle-newmexico')" style="cursor:pointer;border:0.5px solid var(--ink-faint);padding:20px 28px;font-family:var(--serif);font-size:18px;color:var(--ink);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--ink-mid)'" onmouseout="this.style.borderColor='var(--ink-faint)'">New Mexico to Colorado →</div>
+      <div onclick="showPage('cycle-washington')" style="cursor:pointer;border:0.5px solid var(--ink-faint);padding:20px 28px;font-family:var(--serif);font-size:18px;color:var(--ink);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--ink-mid)'" onmouseout="this.style.borderColor='var(--ink-faint)'">Washington to California →</div>
+    </div>
+  </section>
 
-      <!-- ── Florida to Georgia placeholders ── -->
-      <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Florida to Georgia</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Florida to Georgia</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Florida to Georgia</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
 
-      <!-- ── New Mexico to Colorado ── -->
+  <!-- ── FLORIDA TO GEORGIA ── -->
+  <section id="page-cycle-florida" class="page">
+    <div class="project-header">
+      <h2>Florida to Georgia</h2>
+      <p class="project-meta">Cycle Touring · Southeast USA</p>
+    </div>
+    <p class="gallery-intro">Photos coming soon.</p>
+  </section>
+
+
+  <!-- ── NEW MEXICO TO COLORADO ── -->
+  <section id="page-cycle-newmexico" class="page">
+    <div class="project-header">
+      <h2>New Mexico to Colorado</h2>
+      <p class="project-meta">Cycle Touring · Southwest USA</p>
+    </div>
+    <p class="gallery-intro">Photos from the tour. Captions and writing coming soon.</p>
+    <div class="masonry" id="gallery-cycle-nm">
       <div class="masonry-item">
         <img src="Screenshot_2026-04-08_at_7_55_58_PM.png"
              alt="Goat standing at glass sliding door, juniper scrubland beyond, New Mexico"
@@ -1304,22 +1283,17 @@
              style="width:100%;display:block;" onclick="openLightbox(this)">
         <p class="m-caption">Metechi garlic curing. New Mexico. [Caption]</p>
       </div>
-
-      <!-- ── Washington to California placeholders ── -->
-      <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Washington to California</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder mid"><span>Washington to California</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Washington to California</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-
     </div>
+  </section>
+
+
+  <!-- ── WASHINGTON TO CALIFORNIA ── -->
+  <section id="page-cycle-washington" class="page">
+    <div class="project-header">
+      <h2>Washington to California</h2>
+      <p class="project-meta">Cycle Touring · Pacific Coast</p>
+    </div>
+    <p class="gallery-intro">Photos coming soon.</p>
   </section>
 
 
@@ -1329,33 +1303,7 @@
       <h2>Nature</h2>
       <p class="project-meta">Photography · field observations</p>
     </div>
-    <p class="gallery-intro">Landscapes, plants, and close observations from the field. Captions and notes coming soon.</p>
-    <div class="masonry" id="gallery-photo-nature">
-      <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Nature</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Nature</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder mid"><span>Nature</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Nature</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Nature</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder mid"><span>Nature</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-    </div>
+    <p class="gallery-intro">Photos coming soon.</p>
   </section>
 
 
@@ -1365,33 +1313,7 @@
       <h2>Fungi</h2>
       <p class="project-meta">Photography · mycological fieldwork</p>
     </div>
-    <p class="gallery-intro">Specimens and fruiting bodies from the field. Identifications and notes coming soon.</p>
-    <div class="masonry" id="gallery-photo-fungi">
-      <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Fungi</span></div>
-        <p class="m-caption">[Species, location]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder mid"><span>Fungi</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Fungi</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Fungi</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder mid"><span>Fungi</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder wide"><span>Fungi</span></div>
-        <p class="m-caption">[Caption]</p>
-      </div>
-    </div>
+    <p class="gallery-intro">Photos coming soon.</p>
   </section>
 
 
@@ -1415,16 +1337,6 @@
       <p class="project-meta">Objects, forms, materials</p>
     </div>
     <p class="gallery-intro">Practice situated at the intersection of biological process, research integration, and documentary art.</p>
-    <div class="masonry" id="gallery-sculpture">
-      <div class="masonry-item">
-        <div class="masonry-placeholder mid"><span>Work in progress</span></div>
-        <p class="m-caption">[Title, year, materials]</p>
-      </div>
-      <div class="masonry-item">
-        <div class="masonry-placeholder tall"><span>Sculpture</span></div>
-        <p class="m-caption">[Title, year, materials]</p>
-      </div>
-    </div>
     <div class="coming-soon">
       <div class="coming-soon-dot"></div>
       Videos — coming soon
@@ -1810,6 +1722,9 @@
       'feed':               document.getElementById('navlink-feed'),
       'microscopy':         document.getElementById('navlabel-microscopy'),
       'cycle':              document.getElementById('navlabel-cycle'),
+      'cycle-florida':      document.getElementById('navlabel-cycle'),
+      'cycle-newmexico':    document.getElementById('navlabel-cycle'),
+      'cycle-washington':   document.getElementById('navlabel-cycle'),
       'photography':        document.getElementById('navlabel-photography'),
       'photo-nature':       document.getElementById('navlabel-photography'),
       'photo-fungi':        document.getElementById('navlabel-photography'),
@@ -1819,6 +1734,19 @@
       'entry-ethnobotanical': document.getElementById('navlink-feed'),
     };
     if (navMap[id]) navMap[id].classList.add('active');
+
+    document.querySelectorAll('.nav-sub-item').forEach(function(el) { el.classList.remove('active'); });
+    var subMap = {
+      'cycle-florida':    'ni-cycle-fl',
+      'cycle-newmexico':  'ni-cycle-nm',
+      'cycle-washington': 'ni-cycle-wa',
+      'photo-nature':     'ni-photo-nature',
+      'photo-fungi':      'ni-photo-fungi',
+      'sculpture-action': 'ni-action',
+    };
+    if (subMap[id] && document.getElementById(subMap[id])) {
+      document.getElementById(subMap[id]).classList.add('active');
+    }
   }
 
   function toggleCat(id) {
