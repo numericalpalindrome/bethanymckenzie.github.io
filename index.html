@@ -59,15 +59,15 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 .proj-header h2{font-size:22px;font-weight:700;margin-bottom:8px;}
 .proj-meta{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);}
 
-.home-wrap{padding-top:8vh;max-width:520px;}
+.home-wrap{padding-top:8vh;max-width:520px;margin:0 auto;text-align:center;}
 .home-wrap h1{font-size:40px;font-weight:700;line-height:1.1;margin-bottom:24px;}
 .home-bio{font-family:var(--serif);font-size:17px;line-height:1.8;color:var(--ink-mid);margin-bottom:12px;}
 .home-hint{font-family:var(--display);font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin-top:28px;}
-.bmc-card{display:flex;align-items:center;gap:12px;padding:14px 18px;border:0.5px solid var(--ink-faint);background:rgba(255,255,255,0.7);max-width:300px;text-decoration:none;color:var(--ink);transition:border-color 0.2s;margin-top:32px;}
+.bmc-card{display:inline-flex;align-items:center;gap:12px;padding:14px 18px;border:0.5px solid var(--ink-faint);background:rgba(255,255,255,0.7);text-decoration:none;color:var(--ink);transition:border-color 0.2s;margin-top:32px;}
 .bmc-card:hover{border-color:var(--pink);}
 .bmc-label{font-family:var(--display);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);}
 .bmc-sub{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);margin-top:2px;}
-.social-links{margin-top:24px;display:flex;flex-direction:column;gap:5px;}
+.social-links{margin-top:24px;display:flex;flex-direction:column;gap:5px;align-items:center;}
 .social-link{font-family:var(--display);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.15s;}
 .social-link:hover{color:var(--pink);}
 
@@ -183,7 +183,7 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
   <section id="page-home" class="page active">
     <div class="home-wrap">
       <h1>Bethany<br>McKenzie</h1>
-      <p class="home-bio">Artist, naturalist, scientist.</p>
+      <p class="home-bio">Artist, naturalist.</p>
       <p class="home-bio"></p>
       <div class="home-hint">Use the menu to explore →</div>
       <a class="bmc-card" href="https://buymeacoffee.com/BethanyMckenzie" target="_blank">
@@ -270,10 +270,7 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 
   <section id="page-ethno" class="page">
     <div class="proj-header"><h2>Ethnobotanical Extravaganza</h2><p class="proj-meta">Hostel in the Forest · Brunswick, Georgia · Blog</p></div>
-    <div class="photo-block">
-      <img src="Screenshot_2026-04-04_at_12_05_09_AM.png" alt="Group gathered outside the dome, Hostel in the Forest" onclick="openLightbox(this)">
-      
-    </div>
+    
     
     <div class="section-div"></div>
     <div class="photo-block">
@@ -285,10 +282,7 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
       
     </div>
     
-    <div class="photo-block" style="max-width:480px;">
-      <img src="Screenshot_2026-04-04_at_12_05_58_AM.png" alt="Salicornia — semi-aquatic salt substitute" onclick="openLightbox(this)">
-      <p class="photo-cap"><em>Salicornia</em> sp. (glasswort / sea pickle) — semi-aquatic, coastal, salty to the taste. A natural salt substitute.</p>
-    </div>
+    
     
     <div class="photo-block">
       <img src="Screenshot_2026-04-04_at_12_06_40_AM.png" alt="Nathan, Patrice, Julian at the beach" onclick="openLightbox(this)">
@@ -309,14 +303,8 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
     </div>
     <div class="pullquote"><p>To feel is to love.</p></div>
     <div class="section-div"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:560px;margin:28px 0;">
-      <div><img src="Screenshot_2026-04-04_at_12_05_20_AM.png" alt="Bethany smiling, inside the structure" style="width:100%;display:block;cursor:pointer;" onclick="openLightbox(this)"></div>
-      <div><img src="Screenshot_2026-04-04_at_12_05_26_AM.png" alt="Bethany on the porch" style="width:100%;display:block;cursor:pointer;" onclick="openLightbox(this)"></div>
-    </div>
-    <div class="photo-block">
-      <img src="Screenshot_2026-04-04_at_12_05_35_AM.png" alt="Longleaf pine forest" onclick="openLightbox(this)">
-      
-    </div>
+    
+    
     
     <div class="section-div"></div>
     <div class="photo-block" style="max-width:380px;">
