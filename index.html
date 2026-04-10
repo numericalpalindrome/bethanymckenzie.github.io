@@ -537,4 +537,12 @@ function closeLB(){
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB();});
-['microscopy','leafprints','blog','bouquets'].forEach(func
+['microscopy','leafprints','blog','bouquets'].forEach(function(id){
+  var sub=document.getElementById('sub-'+id);
+  var arr=document.getElementById('ar-'+id);
+  if(sub)sub.classList.remove('open');
+  if(arr)arr.classList.remove('open');
+});
+</script>
+</body>
+</html>
