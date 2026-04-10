@@ -46,6 +46,7 @@ nav#sidebar{width:var(--nav-width);min-width:var(--nav-width);height:100vh;posit
 .nbmc:hover{color:var(--pink);}
 .nbmc-dot{width:7px;height:7px;border-radius:50%;background:#FFDD00;flex-shrink:0;}
 .next{font-family:var(--display);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);cursor:pointer;padding:3px 0;display:block;text-decoration:none;transition:color 0.15s;}
+.next::after{content:' →';font-size:8px;}
 .next:hover{color:var(--ink);}
 .ncopy{font-size:9px;color:var(--ink-faint);margin-top:10px;}
 
@@ -69,6 +70,7 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 .bmc-sub{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);margin-top:2px;}
 .social-links{margin-top:24px;display:flex;flex-direction:column;gap:5px;align-items:center;}
 .social-link{font-family:var(--display);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.15s;}
+.social-link::after{content:' →';font-size:8px;}
 .social-link:hover{color:var(--pink);}
 
 .gallery-intro{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-light);margin-bottom:28px;max-width:480px;line-height:1.6;}
@@ -199,13 +201,13 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 
   <div class="nav-bottom">
     <a class="nbmc" href="https://buymeacoffee.com/BethanyMckenzie" target="_blank"><span class="nbmc-dot"></span>Buy me a coffee</a>
-    <a class="next" href="https://www.etsy.com/shop/Faeaceae" target="_blank">Shop — Faeaceae ↗</a>
+    <a class="next" href="https://www.etsy.com/shop/Faeaceae" target="_blank">Shop — Faeaceae</a>
     <div class="ndiv"></div>
-    <a class="next" href="https://www.instagram.com/scorpioid_cymes/" target="_blank">Instagram ↗</a>
-    <a class="next" href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">Rogue Mycology Collective ↗</a>
-    <a class="next" href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank">iNaturalist ↗</a>
+    <a class="next" href="https://www.instagram.com/scorpioid_cymes/" target="_blank">Instagram</a>
+    <a class="next" href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">Rogue Mycology Collective</a>
+    <a class="next" href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank">iNaturalist</a>
     <div class="ndiv"></div>
-    <a class="next" href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank">Contact ↗</a>
+    <a class="next" href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank">Contact</a>
     <div class="ncopy">© 2025 Bethany McKenzie</div>
   </div>
 </nav>
@@ -217,14 +219,13 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
       <h1>Bethany<br>McKenzie</h1>
       <p class="home-bio">Artist, naturalist.</p>
       <p class="home-bio"></p>
-      <div class="home-hint">Use the menu to explore →</div>
       <a class="bmc-card" href="https://buymeacoffee.com/BethanyMckenzie" target="_blank">
         <div><div class="bmc-label">Buy me a coffee</div><div class="bmc-sub">Support this work</div></div>
       </a>
       <div class="social-links">
-        <a class="social-link" href="https://www.instagram.com/scorpioid_cymes/" target="_blank">Instagram — @scorpioid_cymes ↗</a>
-        <a class="social-link" href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">Rogue Mycology Collective ↗</a>
-        <a class="social-link" href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank">iNaturalist ↗</a>
+        <a class="social-link" href="https://www.instagram.com/scorpioid_cymes/" target="_blank">Instagram — @scorpioid_cymes</a>
+        <a class="social-link" href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">Rogue Mycology Collective</a>
+        <a class="social-link" href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank">iNaturalist</a>
       </div>
     </div>
   </section>
@@ -367,8 +368,74 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 
   <section id="page-cycle-wa" class="page">
     <div class="proj-header"><h2>Washington to California</h2><p class="proj-meta">Blog · Cycle Touring · Pacific Coast</p></div>
-    
-    <div class="coming-soon" style="margin-top:24px;"><div class="cs-dot"></div>Photos coming soon</div>
+
+    <div class="photo-block" style="max-width:480px;">
+      <img src="Screenshot_2026-04-04_at_12_25_31_AM.png"
+           alt="Bethany looking up at the California sky, backpack strap visible"
+           onclick="openLightbox(this)">
+      <p class="photo-cap">California.</p>
+    </div>
+
+    <div class="entry-body">
+      <p>On the California leg of the trip I met up with an old friend, Erick Rockclub, and we went hiking in the Redwoods.</p>
+      <p>I also didn't know how to identify poison oak at the time and kept brushing up against it throughout the trip.</p>
+    </div>
+
+    <div class="photo-block">
+      <img src="Screenshot_2026-04-04_at_12_26_26_AM.png"
+           alt="Bethany and Erick Rockclub in the Redwoods, California"
+           onclick="openLightbox(this)">
+      <p class="photo-cap">With Erick Rockclub, hiking in the Redwoods.</p>
+    </div>
+
+    <div class="section-div"></div>
+
+    <div class="entry-body">
+      <p>I also stayed for a short time with Judith Greenleaf, who I found through the WWOOF website. I helped in her garden and stayed in a studio loft above her art studio, in Northern California.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:580px;margin:28px 0;">
+      <div>
+        <img src="Screenshot_2026-04-04_at_12_25_56_AM.png"
+             alt="Bethany at Judith Greenleaf's house, Northern California, light flare"
+             style="width:100%;display:block;cursor:pointer;" onclick="openLightbox(this)">
+        <p class="photo-cap" style="margin-top:5px;">Judith Greenleaf's house, Northern California.</p>
+      </div>
+      <div>
+        <img src="Screenshot_2026-04-04_at_12_25_18_AM.png"
+             alt="Poison oak rash on face"
+             style="width:100%;display:block;cursor:pointer;" onclick="openLightbox(this)">
+        <p class="photo-cap" style="margin-top:5px;">Fresh poison oak rash.</p>
+      </div>
+    </div>
+
+    <div class="section-div"></div>
+
+    <div class="photo-block" style="max-width:400px;">
+      <img src="Screenshot_2026-04-04_at_12_25_06_AM.png"
+           alt="Bethany in blue jacket inside hammock, Washington coast, stealth camping"
+           onclick="openLightbox(this)">
+      <p class="photo-cap">Washington. Stealth camping on the beach — shot from inside my hammock.</p>
+    </div>
+
+    <div class="section-div"></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:580px;margin:28px 0;">
+      <div>
+        <img src="Screenshot_2026-04-04_at_12_25_49_AM.png"
+             alt="Bethany mirror selfie at Judith Greenleaf's house, Northern California"
+             style="width:100%;display:block;cursor:pointer;" onclick="openLightbox(this)">
+        <p class="photo-cap" style="margin-top:5px;">Judith Greenleaf's house, Northern California. Mirrored bathroom wall.</p>
+      </div>
+      <div>
+        <img src="Screenshot_2026-04-04_at_12_24_59_AM.png"
+             alt="Bethany doing laundry at an RV park laundromat, Northern Oregon, longer hair"
+             style="width:100%;display:block;cursor:pointer;" onclick="openLightbox(this)">
+        <p class="photo-cap" style="margin-top:5px;">Northern Oregon — laundromat at an RV park. Pre-haircut.</p>
+      </div>
+    </div>
+
+    <div class="coming-soon" style="margin-top:32px;"><div class="cs-dot"></div>More photos and writing coming soon</div>
   </section>
 
   <section id="page-cv" class="page">
@@ -400,7 +467,7 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
     </div>
     <div class="cv-sec">
       <div class="cv-sec-title">Contact</div>
-      <div style="font-family:var(--serif);font-size:15px;color:var(--ink-mid);"><a href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank" style="color:var(--ink-mid);text-decoration:none;">mckenziebethany8@gmail.com</a></div>
+      <div style="font-family:var(--serif);font-size:15px;color:var(--ink-mid);"><a href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank" style="color:var(--ink-mid);text-decoration:none;"><span class="__cf_email__" data-cfemail="660b050d03081c0f030403120e07081f5e26010b070f0a4805090b">[email&#160;protected]</span></a></div>
     </div>
   </section>
 
@@ -412,7 +479,7 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
   <div class="lb-cap" id="lb-cap"></div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleNav(){
   var nav=document.getElementById('sidebar');
   var btn=document.getElementById('hamburger');
@@ -470,12 +537,4 @@ function closeLB(){
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB();});
-['microscopy','leafprints','blog','bouquets'].forEach(function(id){
-  var sub=document.getElementById('sub-'+id);
-  var arr=document.getElementById('ar-'+id);
-  if(sub)sub.classList.remove('open');
-  if(arr)arr.classList.remove('open');
-});
-</script>
-</body>
-</html>
+['microscopy','leafprints','blog','bouquets'].forEach(func
