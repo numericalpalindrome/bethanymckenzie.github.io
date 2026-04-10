@@ -112,15 +112,48 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 .lb-close:hover{color:#fff;}
 .lb-cap{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-style:italic;font-size:13px;color:rgba(255,255,255,0.6);text-align:center;max-width:480px;}
 
+/* ── HAMBURGER BUTTON ── */
+.hamburger{display:none;position:fixed;top:16px;right:18px;z-index:200;background:rgba(248,245,240,0.95);border:0.5px solid var(--ink-faint);padding:8px 12px;cursor:pointer;font-family:var(--display);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);}
+
 @media(max-width:700px){
-  nav#sidebar{width:100%;min-width:unset;height:auto;position:relative;border-right:none;border-bottom:0.5px solid var(--ink-faint);}
   body{flex-direction:column;}
-  main#content{height:auto;padding:32px 24px 60px;}
+
+  .hamburger{display:block;}
+
+  nav#sidebar{
+    width:100%;min-width:unset;
+    position:fixed;top:0;left:0;right:0;
+    height:auto;max-height:0;overflow:hidden;
+    border-right:none;border-bottom:0.5px solid var(--ink-faint);
+    background:rgba(248,245,240,0.98);
+    padding:0 20px;
+    z-index:100;
+    transition:max-height 0.35s ease, padding 0.35s ease;
+  }
+  nav#sidebar.open{
+    max-height:100vh;
+    overflow-y:auto;
+    padding:20px 20px 28px;
+  }
+
+  .site-name{font-size:16px;margin-bottom:3px;}
+  .nav-bottom{margin-top:28px;}
+
+  main#content{
+    height:auto;
+    padding:72px 24px 60px;
+    margin-top:0;
+  }
+
   .masonry{columns:2;}
+  .home-wrap{padding-top:4vh;}
+  .home-wrap h1{font-size:32px;}
 }
 </style>
 </head>
 <body>
+
+<button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">☰ Menu</button>
 
 <nav id="sidebar">
   <div class="site-name" onclick="go('home')">Bethany<br>McKenzie</div>
@@ -166,7 +199,7 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 
   <div class="nav-bottom">
     <a class="nbmc" href="https://buymeacoffee.com/BethanyMckenzie" target="_blank"><span class="nbmc-dot"></span>Buy me a coffee</a>
-    <a class="next" href="#" target="_blank">Shop ↗</a>
+    <a class="next" href="https://www.etsy.com/shop/Faeaceae" target="_blank">Shop — Faeaceae ↗</a>
     <div class="ndiv"></div>
     <a class="next" href="https://www.instagram.com/scorpioid_cymes/" target="_blank">Instagram ↗</a>
     <a class="next" href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">Rogue Mycology Collective ↗</a>
@@ -382,7 +415,22 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleNav(){
+  var nav=document.getElementById('sidebar');
+  var btn=document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  btn.textContent=nav.classList.contains('open')?'✕ Close':'☰ Menu';
+}
+function closeNav(){
+  var nav=document.getElementById('sidebar');
+  var btn=document.getElementById('hamburger');
+  if(window.innerWidth<=700){
+    nav.classList.remove('open');
+    btn.textContent='☰ Menu';
+  }
+}
 function go(id){
+  closeNav();
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   var pg=document.getElementById('page-'+id);
   if(pg){pg.classList.add('active');document.getElementById('content').scrollTop=0;}
