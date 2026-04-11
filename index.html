@@ -11,47 +11,203 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --pink:#FF2D78;
+  --lilac:#C8A8E9;
   --ink:#1e1e1e;--ink-mid:#5a5550;--ink-light:#9a9088;--ink-faint:#e0d8d0;
-  --parchment:#f3f5f7;--white:#ffffff;
+  --parchment:#f3f5f7;
   --serif:'Cormorant Garamond',Georgia,serif;
   --display:'Syncopate',sans-serif;
-  --nav-width:240px;
 }
 html,body{height:100%;background:var(--parchment);}
-body{display:flex;font-family:var(--serif);font-size:13px;font-weight:300;line-height:1.6;color:var(--ink);position:relative;}
-body::before{content:'';position:fixed;inset:0;background:url('bg-dragonfly.png') center center/cover no-repeat;filter:blur(8px) saturate(1.2) brightness(0.95) hue-rotate(10deg);opacity:0.28;z-index:0;transform:scale(1.05);}
+body{font-family:var(--serif);font-size:13px;font-weight:300;line-height:1.6;color:var(--ink);}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--ink-faint);border-radius:2px;}
 
-nav#sidebar{width:var(--nav-width);min-width:var(--nav-width);height:100vh;position:sticky;top:0;overflow-y:auto;border-right:0.5px solid var(--ink-faint);background:rgba(248,245,240,0.94);padding:36px 20px 36px 28px;display:flex;flex-direction:column;z-index:10;}
-.site-name{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--pink);margin-bottom:4px;cursor:pointer;line-height:1.4;}
-.site-name:hover{opacity:0.8;}
-.site-tagline{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin-bottom:28px;}
-.nav-plain{font-family:var(--display);font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);cursor:pointer;padding:4px 0;display:block;transition:color 0.15s;}
-.nav-plain:hover,.nav-plain.on{color:var(--ink);}
-.ndiv{height:0.5px;background:var(--ink-faint);margin:10px 0;}
-.ncat{margin-bottom:1px;}
-.nlabel{font-family:var(--display);font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mid);padding:5px 0 4px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color 0.15s;user-select:none;}
-.nlabel:hover,.nlabel.on{color:var(--ink);}
-.narr{font-size:6px;color:var(--ink-light);transition:transform 0.2s;}
-.narr.open{transform:rotate(90deg);}
-.nsub{overflow:hidden;max-height:0;transition:max-height 0.3s ease;}
-.nsub.open{max-height:600px;}
-.nitem{display:block;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink-light);padding:3px 0 3px 10px;cursor:pointer;border-left:1px solid transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color 0.15s,border-color 0.15s;}
-.nitem:hover{color:var(--ink);}
-.nitem.on{color:var(--ink);border-left-color:var(--pink);}
-.nav-bottom{margin-top:auto;padding-top:18px;border-top:0.5px solid var(--ink-faint);}
-.nbmc{display:flex;align-items:center;gap:6px;font-family:var(--display);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:3px 0;transition:color 0.15s;}
-.nbmc:hover{color:var(--pink);}
-.nbmc-dot{width:7px;height:7px;border-radius:50%;background:#FFDD00;flex-shrink:0;}
-.next{font-family:var(--display);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);cursor:pointer;padding:3px 0;display:block;text-decoration:none;transition:color 0.15s;}
-.next::after{content:' →';font-size:8px;}
-.next:hover{color:var(--ink);}
-.ncopy{font-size:9px;color:var(--ink-faint);margin-top:10px;}
+/* ══════════════════
+   HOME PAGE
+══════════════════ */
+#home-page{
+  position:fixed;inset:0;
+  display:flex;flex-direction:column;
+  z-index:50;
+  transition:opacity 0.4s ease;
+}
+#home-page.hidden{opacity:0;pointer-events:none;}
 
-main#content{flex:1;height:100vh;overflow-y:auto;padding:48px 56px 80px 56px;position:relative;z-index:1;}
-.page{display:none;max-width:760px;margin:0 auto;}
+.home-bg{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(1.1) brightness(0.85);
+}
+
+/* Scattered nav items */
+.hn{
+  position:absolute;
+  font-family:var(--display);
+  font-size:20px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--lilac);
+  cursor:pointer;
+  line-height:1.4;
+  text-shadow:0 1px 8px rgba(0,0,0,0.5);
+  transition:color 0.2s,text-shadow 0.2s;
+  user-select:none;
+}
+.hn:hover{
+  color:#fff;
+  text-shadow:0 0 18px rgba(200,168,233,0.9),0 1px 8px rgba(0,0,0,0.5);
+}
+
+/* Site name */
+.home-name{
+  position:absolute;
+  top:7%;left:6%;
+  font-family:var(--display);
+  font-size:clamp(16px,2.5vw,28px);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--lilac);
+  text-shadow:0 2px 12px rgba(0,0,0,0.3);
+  line-height:1.15;
+  cursor:pointer;
+
+}
+.home-tagline{
+  position:absolute;
+  top:calc(7% + clamp(38px,6vw,68px));
+  left:6%;
+  font-family:var(--display);
+  font-size:8px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.55);
+
+}
+
+/* Social cluster bottom */
+.home-social{
+  position:absolute;
+  bottom:28px;left:6%;
+  display:flex;flex-wrap:wrap;gap:8px 18px;
+  max-width:520px;
+}
+.hs{
+  font-family:var(--display);
+  font-size:7px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.5);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+.hs:hover{color:var(--lilac);}
+.hs::after{content:' →';}
+
+/* Hover preview */
+.home-preview{
+  position:absolute;
+  bottom:72px;left:50%;
+  transform:translateX(-50%);
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:14px;
+  color:rgba(255,255,255,0.85);
+  text-shadow:0 1px 6px rgba(0,0,0,0.6);
+  text-align:center;
+  max-width:440px;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 0.25s;
+  padding:0 16px;
+}
+.home-preview.visible{opacity:1;}
+
+/* ══════════════════
+   INNER PAGES
+══════════════════ */
+#inner-wrap{
+  display:none;
+  flex-direction:column;
+  min-height:100vh;
+}
+#inner-wrap.active{display:flex;}
+
+/* Top bar */
+#topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(243,245,247,0.96);
+  border-bottom:0.5px solid var(--ink-faint);
+  padding:0 32px;
+  height:48px;
+  display:flex;align-items:center;
+  gap:0;
+  backdrop-filter:blur(8px);
+}
+.tb-name{
+  font-family:var(--display);
+  font-size:10px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--pink);cursor:pointer;
+  margin-right:28px;white-space:nowrap;
+  flex-shrink:0;
+}
+.tb-name:hover{opacity:0.75;}
+.tb-links{
+  display:flex;align-items:center;
+  gap:0;overflow-x:auto;
+  scrollbar-width:none;flex:1;
+}
+.tb-links::-webkit-scrollbar{display:none;}
+.tbl{
+  font-family:var(--display);font-size:7px;
+  letter-spacing:0.13em;text-transform:uppercase;
+  color:var(--ink-light);cursor:pointer;
+  padding:0 12px;height:48px;
+  display:flex;align-items:center;
+  white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:color 0.15s,border-color 0.15s;
+  flex-shrink:0;
+}
+.tbl:hover{color:var(--ink);}
+.tbl.on{color:var(--pink);border-bottom-color:var(--pink);}
+.tb-dropdown{position:relative;}
+.tb-dropdown:hover .tb-sub{display:flex;}
+.tb-sub{
+  display:none;
+  flex-direction:column;
+  position:absolute;top:48px;left:0;
+  background:rgba(243,245,247,0.98);
+  border:0.5px solid var(--ink-faint);
+  min-width:220px;z-index:200;
+  padding:8px 0;
+}
+.tb-sub-item{
+  font-family:var(--serif);font-style:italic;
+  font-size:13px;color:var(--ink-light);
+  padding:7px 18px;cursor:pointer;
+  transition:color 0.15s,background 0.15s;
+  white-space:nowrap;
+}
+.tb-sub-item:hover{color:var(--ink);background:rgba(200,168,233,0.08);}
+.tb-sub-item.on{color:var(--pink);}
+
+/* Main content */
+#inner-content{
+  flex:1;
+  padding:44px 56px 80px;
+  max-width:760px;
+  margin:0 auto;
+  width:100%;
+}
+
+/* Page sections */
+.page{display:none;}
 .page.active{display:block;animation:fadeIn 0.3s ease;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
 
@@ -59,19 +215,6 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 .proj-header{margin-bottom:36px;padding-bottom:20px;border-bottom:0.5px solid var(--ink-faint);}
 .proj-header h2{font-size:22px;font-weight:700;margin-bottom:8px;}
 .proj-meta{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);}
-
-.home-wrap{padding-top:8vh;max-width:520px;margin:0 auto;text-align:center;}
-.home-wrap h1{font-size:40px;font-weight:700;line-height:1.1;margin-bottom:24px;}
-.home-bio{font-family:var(--serif);font-size:17px;line-height:1.8;color:var(--ink-mid);margin-bottom:12px;}
-.home-hint{font-family:var(--display);font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin-top:28px;}
-.bmc-card{display:inline-flex;align-items:center;gap:12px;padding:14px 18px;border:0.5px solid var(--ink-faint);background:rgba(255,255,255,0.7);text-decoration:none;color:var(--ink);transition:border-color 0.2s;margin-top:32px;}
-.bmc-card:hover{border-color:var(--pink);}
-.bmc-label{font-family:var(--display);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);}
-.bmc-sub{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);margin-top:2px;}
-.social-links{margin-top:24px;display:flex;flex-direction:column;gap:5px;align-items:center;}
-.social-link{font-family:var(--display);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color 0.15s;}
-.social-link::after{content:' →';font-size:8px;}
-.social-link:hover{color:var(--pink);}
 
 .gallery-intro{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-light);margin-bottom:28px;max-width:480px;line-height:1.6;}
 .masonry{columns:3;column-gap:12px;max-width:720px;}
@@ -99,46 +242,6 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 .coming-soon{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:0.5px solid var(--ink-faint);font-family:var(--display);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);}
 .cs-dot{width:6px;height:6px;border-radius:50%;background:var(--ink-faint);}
 
-/* ── BLOG INDEX ── */
-.blog-index{position:relative;width:100%;height:80vh;overflow:hidden;cursor:default;}
-.blog-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.1) brightness(0.9);}
-.blog-entry-link{
-  position:absolute;
-  font-family:var(--display);
-  font-size:13px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:0.08em;
-  color:rgba(255,255,255,0.85);
-  cursor:pointer;
-  line-height:1.4;
-  text-shadow:0 1px 8px rgba(0,0,0,0.4);
-  transition:color 0.2s,text-shadow 0.2s;
-  user-select:none;
-}
-.blog-entry-link:hover{
-  color:#fff;
-  text-shadow:0 0 20px rgba(255,45,120,0.8),0 1px 8px rgba(0,0,0,0.5);
-}
-.blog-preview{
-  position:absolute;
-  bottom:28px;
-  left:50%;
-  transform:translateX(-50%);
-  font-family:var(--serif);
-  font-style:italic;
-  font-size:14px;
-  color:rgba(255,255,255,0.9);
-  text-shadow:0 1px 6px rgba(0,0,0,0.6);
-  text-align:center;
-  max-width:420px;
-  pointer-events:none;
-  opacity:0;
-  transition:opacity 0.25s;
-  padding:0 16px;
-}
-.blog-preview.visible{opacity:1;}
-
 .cv-sec{margin-bottom:36px;}
 .cv-sec-title{font-family:var(--display);font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pink);margin-bottom:14px;padding-bottom:8px;border-bottom:0.5px solid var(--ink-faint);}
 .cv-row{display:flex;gap:20px;margin-bottom:14px;}
@@ -147,130 +250,110 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 .cv-place{font-size:11px;color:var(--ink-mid);}
 .cv-desc{font-size:11px;color:var(--ink-light);line-height:1.6;margin-top:3px;max-width:460px;}
 
+/* Blog index */
+.blog-index{position:relative;width:calc(100% + 112px);margin-left:-56px;height:75vh;overflow:hidden;}
+.blog-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.1) brightness(0.88);}
+.blog-entry-link{position:absolute;font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--lilac);cursor:pointer;line-height:1.4;text-shadow:0 1px 8px rgba(0,0,0,0.4);transition:color 0.2s,text-shadow 0.2s;user-select:none;}
+.blog-entry-link:hover{color:#fff;text-shadow:0 0 20px rgba(200,168,233,0.8),0 1px 8px rgba(0,0,0,0.5);}
+.blog-preview{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(255,255,255,0.9);text-shadow:0 1px 6px rgba(0,0,0,0.6);text-align:center;max-width:420px;pointer-events:none;opacity:0;transition:opacity 0.25s;padding:0 16px;}
+.blog-preview.visible{opacity:1;}
+
+/* Lightbox */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(20,18,16,0.93);z-index:1000;align-items:center;justify-content:center;padding:24px;}
 .lightbox.open{display:flex;}
 .lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;display:block;}
-.lb-close{position:fixed;top:18px;right:24px;font-size:22px;color:rgba(255,255,255,0.6);cursor:pointer;user-select:none;line-height:1;}
+.lb-close{position:fixed;top:18px;right:24px;font-size:22px;color:rgba(255,255,255,0.6);cursor:pointer;user-select:none;}
 .lb-close:hover{color:#fff;}
 .lb-cap{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-style:italic;font-size:13px;color:rgba(255,255,255,0.6);text-align:center;max-width:480px;}
 
-/* ── HAMBURGER BUTTON ── */
-.hamburger{display:none;position:fixed;top:16px;right:18px;z-index:200;background:rgba(248,245,240,0.95);border:0.5px solid var(--ink-faint);padding:8px 12px;cursor:pointer;font-family:var(--display);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);}
-
+/* Mobile */
 @media(max-width:700px){
-  body{flex-direction:column;}
-
-  .hamburger{display:block;}
-
-  nav#sidebar{
-    width:100%;min-width:unset;
-    position:fixed;top:0;left:0;right:0;
-    height:auto;max-height:0;overflow:hidden;
-    border-right:none;border-bottom:0.5px solid var(--ink-faint);
-    background:rgba(248,245,240,0.98);
-    padding:0 20px;
-    z-index:100;
-    transition:max-height 0.35s ease, padding 0.35s ease;
-  }
-  nav#sidebar.open{
-    max-height:100vh;
-    overflow-y:auto;
-    padding:20px 20px 28px;
-  }
-
-  .site-name{font-size:16px;margin-bottom:3px;}
-  .nav-bottom{margin-top:28px;}
-
-  main#content{
-    height:auto;
-    padding:72px 24px 60px;
-    margin-top:0;
-  }
-
+  #topbar{padding:0 16px;}
+  #inner-content{padding:32px 20px 60px;}
   .masonry{columns:2;}
-  .home-wrap{padding-top:4vh;}
-  .home-wrap h1{font-size:32px;}
+  .tbl{padding:0 8px;font-size:6px;}
+  .blog-index{height:60vh;}
+  .blog-entry-link{font-size:10px;}
+  .hn{font-size:9px;}
+  .home-name{font-size:clamp(20px,7vw,36px);}
 }
 </style>
 </head>
 <body>
 
-<button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">☰ Menu</button>
+<!-- ══════════════════
+     HOME PAGE
+══════════════════ -->
+<div id="home-page">
+  <img src="bg-dragonfly.png" class="home-bg" alt="">
 
-<nav id="sidebar">
-  <div class="site-name" onclick="go('home')">Bethany<br>McKenzie</div>
-  <div class="site-tagline">Artist &amp; Naturalist</div>
+  <div class="home-name" onclick="showHome()">Bethany<br>McKenzie</div>
+  <div class="home-tagline">Artist &amp; Naturalist</div>
 
-  <span class="nav-plain" id="nl-feed" onclick="go('feed')">All Entries</span>
-  <div class="ndiv"></div>
+  <!-- Scattered nav -->
+  <div class="hn" style="top:18%;left:62%;" onclick="goInner('feed')" data-preview="All entries, chronological.">All Entries</div>
+  <div class="hn" style="top:30%;left:7%;" onclick="goInner('bouquets')" data-preview="Sculptural works arising from research in plant pathology.">Pathogen<br>Bouquets</div>
+  <div class="hn" style="top:38%;left:72%;" onclick="goInner('microscopy')" data-preview="Microscopy from the lab and field — coming soon.">Ambient<br>Microscopy</div>
+  <div class="hn" style="top:52%;left:38%;" onclick="goInner('leafprints')" data-preview="Photosynthesis leaf prints — coming soon.">Leaf<br>Prints</div>
+  <div class="hn" style="top:62%;left:8%;" onclick="goInner('blog')" data-preview="Writing, poetry and photography from the road and field.">Blog</div>
+  <div class="hn" style="top:72%;left:60%;" onclick="goInner('cv')" data-preview="CV — Bethany McKenzie.">CV</div>
 
-  <div class="ncat">
-    <div class="nlabel" id="nl-bouquets" onclick="tog('bouquets');go('bouquets')">Pathogen Bouquets<span class="narr" id="ar-bouquets">&#9654;</span></div>
-    <div class="nsub" id="sub-bouquets">
-      <span class="nitem" id="ni-action" onclick="go('action')">Action Threshold</span>
-    </div>
+  <!-- Social cluster -->
+  <div class="home-social">
+    <a class="hs" href="https://buymeacoffee.com/BethanyMckenzie" target="_blank">Buy me a coffee</a>
+    <a class="hs" href="https://www.etsy.com/shop/Faeaceae" target="_blank">Shop — Faeaceae</a>
+    <a class="hs" href="https://www.instagram.com/scorpioid_cymes/" target="_blank">Instagram</a>
+    <a class="hs" href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">Rogue Mycology Collective</a>
+    <a class="hs" href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank">iNaturalist</a>
+    <a class="hs" href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank">Contact</a>
   </div>
 
-  <div class="ncat">
-    <div class="nlabel" id="nl-microscopy" onclick="tog('microscopy');go('microscopy')">Ambient Microscopy<span class="narr" id="ar-microscopy">&#9654;</span></div>
-    <div class="nsub" id="sub-microscopy">
-      <span class="nitem" onclick="go('microscopy')">Coming soon</span>
-    </div>
-  </div>
+  <div class="home-preview" id="home-preview"></div>
+</div>
 
-  <div class="ncat">
-    <div class="nlabel" id="nl-leafprints" onclick="tog('leafprints');go('leafprints')">Leaf Prints<span class="narr" id="ar-leafprints">&#9654;</span></div>
-    <div class="nsub" id="sub-leafprints">
-      <span class="nitem" onclick="go('leafprints')">Coming soon</span>
-    </div>
-  </div>
+<!-- ══════════════════
+     INNER PAGES
+══════════════════ -->
+<div id="inner-wrap">
 
-  <div class="ncat">
-    <div class="nlabel" id="nl-blog" onclick="tog('blog');go('blog')">Blog<span class="narr" id="ar-blog">&#9654;</span></div>
-    <div class="nsub" id="sub-blog">
-      <span class="nitem" id="ni-ethno" onclick="go('ethno')">Ethnobotanical Extravaganza</span>
-      <span class="nitem" id="ni-fl" onclick="go('cycle-fl')">Florida to Georgia</span>
-      <span class="nitem" id="ni-nm" onclick="go('cycle-nm')">New Mexico to Colorado</span>
-      <span class="nitem" id="ni-wa" onclick="go('cycle-wa')">Washington to California</span>
-    </div>
-  </div>
+  <!-- Top bar -->
+  <nav id="topbar">
+    <div class="tb-name" onclick="showHome()">Bethany McKenzie</div>
+    <div class="tb-links">
+      <span class="tbl" id="tbl-feed" onclick="goInner('feed')">All Entries</span>
 
-  <div class="ndiv"></div>
-  <span class="nav-plain" id="nl-cv" onclick="go('cv')">CV</span>
-  <div class="ndiv"></div>
-
-  <div class="nav-bottom">
-    <a class="nbmc" href="https://buymeacoffee.com/BethanyMckenzie" target="_blank"><span class="nbmc-dot"></span>Buy me a coffee</a>
-    <a class="next" href="https://www.etsy.com/shop/Faeaceae" target="_blank">Shop — Faeaceae</a>
-    <div class="ndiv"></div>
-    <a class="next" href="https://www.instagram.com/scorpioid_cymes/" target="_blank">Instagram</a>
-    <a class="next" href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">Rogue Mycology Collective</a>
-    <a class="next" href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank">iNaturalist</a>
-    <div class="ndiv"></div>
-    <a class="next" href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank">Contact</a>
-    <div class="ncopy">© 2025 Bethany McKenzie</div>
-  </div>
-</nav>
-
-<main id="content">
-
-  <section id="page-home" class="page active">
-    <div class="home-wrap">
-      <h1>Bethany<br>McKenzie</h1>
-      <p class="home-bio">Artist, naturalist.</p>
-      <p class="home-bio"></p>
-      <a class="bmc-card" href="https://buymeacoffee.com/BethanyMckenzie" target="_blank">
-        <div><div class="bmc-label">Buy me a coffee</div><div class="bmc-sub">Support this work</div></div>
-      </a>
-      <div class="social-links">
-        <a class="social-link" href="https://www.instagram.com/scorpioid_cymes/" target="_blank">Instagram — @scorpioid_cymes</a>
-        <a class="social-link" href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">Rogue Mycology Collective</a>
-        <a class="social-link" href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank">iNaturalist</a>
+      <div class="tb-dropdown">
+        <span class="tbl" id="tbl-bouquets" onclick="goInner('bouquets')">Pathogen Bouquets</span>
+        <div class="tb-sub">
+          <div class="tb-sub-item" id="tsi-action" onclick="goInner('action')">Action Threshold</div>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section id="page-feed" class="page">
+      <div class="tb-dropdown">
+        <span class="tbl" id="tbl-microscopy" onclick="goInner('microscopy')">Ambient Microscopy</span>
+      </div>
+
+      <div class="tb-dropdown">
+        <span class="tbl" id="tbl-leafprints" onclick="goInner('leafprints')">Leaf Prints</span>
+      </div>
+
+      <div class="tb-dropdown">
+        <span class="tbl" id="tbl-blog" onclick="goInner('blog')">Blog</span>
+        <div class="tb-sub">
+          <div class="tb-sub-item" id="tsi-ethno" onclick="goInner('ethno')">Ethnobotanical Extravaganza</div>
+          <div class="tb-sub-item" id="tsi-fl" onclick="goInner('cycle-fl')">Florida to Georgia</div>
+          <div class="tb-sub-item" id="tsi-nm" onclick="goInner('cycle-nm')">New Mexico to Colorado</div>
+          <div class="tb-sub-item" id="tsi-wa" onclick="goInner('cycle-wa')">Washington to California</div>
+        </div>
+      </div>
+
+      <span class="tbl" id="tbl-cv" onclick="goInner('cv')">CV</span>
+    </div>
+  </nav>
+
+  <!-- Page content -->
+  <div id="inner-content">
+<section id="page-feed" class="page">
     <div class="proj-header"><h2>All Entries</h2><p class="proj-meta">Chronological record</p></div>
     <div style="cursor:pointer;display:flex;gap:18px;padding:16px 0;border-top:0.5px solid var(--ink-faint);border-bottom:0.5px solid var(--ink-faint);" onclick="go('ethno')">
       <div style="width:80px;min-width:80px;height:80px;overflow:hidden;">
@@ -525,57 +608,82 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
     </div>
   </section>
 
-</main>
 
+  </div>
+</div>
+
+<!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="closeLB()">
   <span class="lb-close" onclick="closeLB()">&#x2715;</span>
   <img id="lb-img" src="" alt="">
   <div class="lb-cap" id="lb-cap"></div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function toggleNav(){
-  var nav=document.getElementById('sidebar');
-  var btn=document.getElementById('hamburger');
-  nav.classList.toggle('open');
-  btn.textContent=nav.classList.contains('open')?'✕ Close':'☰ Menu';
-}
-function closeNav(){
-  var nav=document.getElementById('sidebar');
-  var btn=document.getElementById('hamburger');
-  if(window.innerWidth<=700){
-    nav.classList.remove('open');
-    btn.textContent='☰ Menu';
-  }
-}
-function go(id){
-  closeNav();
+<script>
+// ── HOME / INNER SWITCHING ──
+function showHome(){
+  document.getElementById('home-page').classList.remove('hidden');
+  document.getElementById('inner-wrap').classList.remove('active');
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
-  var pg=document.getElementById('page-'+id);
-  if(pg){pg.classList.add('active');document.getElementById('content').scrollTop=0;}
-  document.querySelectorAll('.nav-plain,.nlabel').forEach(function(el){el.classList.remove('on');});
-  document.querySelectorAll('.nitem').forEach(function(el){el.classList.remove('on');});
-  var nlMap={'home':null,'feed':'nl-feed','bouquets':'nl-bouquets','action':'nl-bouquets','microscopy':'nl-microscopy','leafprints':'nl-leafprints','blog':'nl-blog','ethno':'nl-blog','cycle-fl':'nl-blog','cycle-nm':'nl-blog','cycle-wa':'nl-blog','cv':'nl-cv'};
-  var niMap={'action':'ni-action','ethno':'ni-ethno','cycle-fl':'ni-fl','cycle-nm':'ni-nm','cycle-wa':'ni-wa'};
-  if(nlMap[id]&&document.getElementById(nlMap[id])){document.getElementById(nlMap[id]).classList.add('on');}
-  if(niMap[id]&&document.getElementById(niMap[id])){
-    var ni=document.getElementById(niMap[id]);
-    ni.classList.add('on');
-    var sub=ni.closest('.nsub');
-    if(sub){sub.classList.add('open');}
-    var arr=sub&&sub.previousElementSibling&&sub.previousElementSibling.querySelector('.narr');
-    if(arr){arr.classList.add('open');}
-    var lbl=sub&&sub.previousElementSibling;
-    if(lbl&&lbl.classList.contains('nlabel')){lbl.classList.add('on');}
-  }
+  window.scrollTo(0,0);
 }
-function tog(id){
-  var sub=document.getElementById('sub-'+id);
-  var arr=document.getElementById('ar-'+id);
-  if(!sub)return;
-  sub.classList.toggle('open');
-  if(arr)arr.classList.toggle('open');
+
+function goInner(id){
+  document.getElementById('home-page').classList.add('hidden');
+  document.getElementById('inner-wrap').classList.add('active');
+
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  var pg = document.getElementById('page-'+id);
+  if(pg){pg.classList.add('active');}
+  document.getElementById('inner-content').scrollTop = 0;
+  window.scrollTo(0,0);
+
+  // Update top bar highlights
+  document.querySelectorAll('.tbl,.tb-sub-item').forEach(function(el){el.classList.remove('on');});
+  var tlMap={
+    'feed':'tbl-feed','bouquets':'tbl-bouquets','action':'tbl-bouquets',
+    'microscopy':'tbl-microscopy','leafprints':'tbl-leafprints',
+    'blog':'tbl-blog','ethno':'tbl-blog',
+    'cycle-fl':'tbl-blog','cycle-nm':'tbl-blog','cycle-wa':'tbl-blog',
+    'cv':'tbl-cv'
+  };
+  var tiMap={
+    'action':'tsi-action','ethno':'tsi-ethno',
+    'cycle-fl':'tsi-fl','cycle-nm':'tsi-nm','cycle-wa':'tsi-wa'
+  };
+  if(tlMap[id]&&document.getElementById(tlMap[id])){document.getElementById(tlMap[id]).classList.add('on');}
+  if(tiMap[id]&&document.getElementById(tiMap[id])){document.getElementById(tiMap[id]).classList.add('on');}
 }
+
+// ── HOME HOVER PREVIEWS ──
+document.querySelectorAll('.hn').forEach(function(el){
+  var preview = document.getElementById('home-preview');
+  el.addEventListener('mouseenter',function(){
+    preview.textContent = el.getAttribute('data-preview');
+    preview.classList.add('visible');
+  });
+  el.addEventListener('mouseleave',function(){
+    preview.classList.remove('visible');
+  });
+});
+
+// ── BLOG INDEX HOVER PREVIEWS ──
+document.addEventListener('DOMContentLoaded',function(){
+  var links = document.querySelectorAll('.blog-entry-link');
+  var preview = document.getElementById('blog-preview');
+  if(!preview) return;
+  links.forEach(function(link){
+    link.addEventListener('mouseenter',function(){
+      preview.textContent = link.getAttribute('data-preview');
+      preview.classList.add('visible');
+    });
+    link.addEventListener('mouseleave',function(){
+      preview.classList.remove('visible');
+    });
+  });
+});
+
+// ── LIGHTBOX ──
 function openLightbox(img){
   var lb=document.getElementById('lightbox');
   document.getElementById('lb-img').src=img.src;
@@ -592,28 +700,8 @@ function closeLB(){
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB();});
 
-document.addEventListener('DOMContentLoaded', function(){
-  var links = document.querySelectorAll('.blog-entry-link');
-  var preview = document.getElementById('blog-preview');
-  links.forEach(function(link){
-    link.addEventListener('mouseenter', function(){
-      if(preview){
-        preview.textContent = link.getAttribute('data-preview');
-        preview.classList.add('visible');
-      }
-    });
-    link.addEventListener('mouseleave', function(){
-      if(preview) preview.classList.remove('visible');
-    });
-  });
-});
-
-['microscopy','leafprints','blog','bouquets'].forEach(function(id){
-  var sub=document.getElementById('sub-'+id);
-  var arr=document.getElementById('ar-'+id);
-  if(sub)sub.classList.remove('open');
-  if(arr)arr.classList.remove('open');
-});
+// Keep go() as alias for goInner() for any existing onclick calls
+function go(id){goInner(id);}
 </script>
 </body>
 </html>
