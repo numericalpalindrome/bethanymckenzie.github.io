@@ -278,18 +278,6 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 .cv-place{font-size:11px;color:var(--ink-mid);}
 .cv-desc{font-size:11px;color:var(--ink-light);line-height:1.6;margin-top:3px;max-width:460px;}
 
-/* Blog index */
-.blog-index{position:relative;height:100vh;overflow:hidden;}
-.blog-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.1) brightness(0.88);}
-.blog-fullscreen{position:fixed;inset:0;z-index:10;padding:0;max-width:100vw;margin:0;}
-body.blog-mode{background:transparent;}
-body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
-
-.blog-entry-link{position:absolute;font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--lilac);cursor:pointer;line-height:1.4;text-shadow:0 1px 8px rgba(0,0,0,0.4);transition:color 0.2s,text-shadow 0.2s;user-select:none;}
-.blog-entry-link:hover{color:#fff;text-shadow:0 0 20px rgba(200,168,233,0.8),0 1px 8px rgba(0,0,0,0.5);}
-.blog-preview{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(255,255,255,0.9);text-shadow:0 1px 6px rgba(0,0,0,0.6);text-align:center;max-width:420px;pointer-events:none;opacity:0;transition:opacity 0.25s;padding:0 16px;}
-.blog-preview.visible{opacity:1;}
-
 /* Lightbox */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(20,18,16,0.93);z-index:1000;align-items:center;justify-content:center;padding:24px;}
 .lightbox.open{display:flex;}
@@ -337,17 +325,6 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
 
   /* Blog grid — single col on mobile */
   .blog-grid{grid-template-columns:1fr;}
-
-  /* Blog index */
-  .blog-index{height:70vh;}
-  .blog-entry-link{font-size:11px;line-height:1.3;}
-
-  /* Spread blog links so they don't overlap on narrow phones */
-  .blog-entry-link:nth-child(1){top:10% !important;left:6% !important;}
-  .blog-entry-link:nth-child(2){top:26% !important;left:52% !important;}
-  .blog-entry-link:nth-child(3){top:50% !important;left:6% !important;}
-  .blog-entry-link:nth-child(4){top:66% !important;left:52% !important;}
-  .blog-preview{bottom:10px;font-size:12px;}
 
   /* Home */
   .hn{font-size:11px;}
@@ -553,27 +530,51 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
     <div class="coming-soon"><div class="cs-dot"></div>Work coming soon</div>
   </section>
 
-  <section id="page-blog" class="page blog-fullscreen">
-    <div class="blog-index">
-      <img src="bg-dragonfly.png" class="blog-bg" alt="">
+  <section id="page-blog" class="page">
+    <div class="proj-header"><h2>Blog</h2><p class="proj-meta">Writing, poetry &amp; photography from the road and field</p></div>
 
-      <div class="blog-entry-link" style="top:12%;left:8%;" onclick="go('ethno')" data-preview="A forest gathering, a dome in the pines, ethnobotany, and the plants that hold everything together.">
-        Ethnobotanical<br>Extravaganza
+    <div style="cursor:pointer;display:flex;gap:18px;padding:16px 0;border-top:0.5px solid var(--ink-faint);border-bottom:0.5px solid var(--ink-faint);" onclick="go('ethno')">
+      <div style="width:80px;min-width:80px;height:80px;overflow:hidden;">
+        <img src="Screenshot_2026-04-04_at_12_05_09_AM.png" alt="Ethnobotanical Extravaganza" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
-
-      <div class="blog-entry-link" style="top:22%;left:58%;" onclick="go('cycle-fl')" data-preview="Cycling the southeast — Florida to Georgia. The heat, the road, the coast.">
-        Florida to<br>Georgia
+      <div>
+        <div style="font-family:var(--display);font-size:8px;letter-spacing:0.11em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px;">Blog · Nature · Community</div>
+        <div style="font-family:var(--display);font-size:12px;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Ethnobotanical Extravaganza</div>
+        <div style="font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink-light);">A forest gathering, a dome in the pines, and the plants that hold everything together.</div>
       </div>
+    </div>
 
-      <div class="blog-entry-link" style="top:52%;left:12%;" onclick="go('cycle-nm')" data-preview="Gavilan Farmstead, Valley of the Moon Ranch. Yaks, garlic, skulls on fences, and the high desert.">
-        New Mexico<br>to Colorado
+    <div style="cursor:pointer;display:flex;gap:18px;padding:16px 0;border-bottom:0.5px solid var(--ink-faint);" onclick="go('cycle-fl')">
+      <div style="width:80px;min-width:80px;height:80px;overflow:hidden;background:var(--ink-faint);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:var(--display);font-size:7px;letter-spacing:0.1em;color:var(--ink-light);text-transform:uppercase;">Photo<br>coming soon</span>
       </div>
-
-      <div class="blog-entry-link" style="top:65%;left:55%;" onclick="go('cycle-wa')" data-preview="The Redwoods, a WWOOF stay, stealth camping on the Washington coast, and a poison oak rash.">
-        Washington<br>to California
+      <div>
+        <div style="font-family:var(--display);font-size:8px;letter-spacing:0.11em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px;">Blog · Cycle Touring · Southeast USA</div>
+        <div style="font-family:var(--display);font-size:12px;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Florida to Georgia</div>
+        <div style="font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink-light);">The heat, the road, the coast.</div>
       </div>
+    </div>
 
-      <div class="blog-preview" id="blog-preview"></div>
+    <div style="cursor:pointer;display:flex;gap:18px;padding:16px 0;border-bottom:0.5px solid var(--ink-faint);" onclick="go('cycle-nm')">
+      <div style="width:80px;min-width:80px;height:80px;overflow:hidden;">
+        <img src="Screenshot_2026-04-08_at_7_55_28_PM.png" alt="New Mexico to Colorado" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div>
+        <div style="font-family:var(--display);font-size:8px;letter-spacing:0.11em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px;">Blog · Cycle Touring · Southwest USA</div>
+        <div style="font-family:var(--display);font-size:12px;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">New Mexico to Colorado</div>
+        <div style="font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink-light);">Gavilan Farmstead, Valley of the Moon Ranch. Yaks, garlic, skulls on fences, and the high desert.</div>
+      </div>
+    </div>
+
+    <div style="cursor:pointer;display:flex;gap:18px;padding:16px 0;border-bottom:0.5px solid var(--ink-faint);" onclick="go('cycle-wa')">
+      <div style="width:80px;min-width:80px;height:80px;overflow:hidden;">
+        <img src="Screenshot_2026-04-04_at_12_25_06_AM.png" alt="Washington to California" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div>
+        <div style="font-family:var(--display);font-size:8px;letter-spacing:0.11em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px;">Blog · Cycle Touring · Pacific Coast</div>
+        <div style="font-family:var(--display);font-size:12px;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Washington to California</div>
+        <div style="font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink-light);">The Redwoods, a WWOOF stay, stealth camping on the coast, and a poison oak rash.</div>
+      </div>
     </div>
   </section>
 
@@ -728,15 +729,6 @@ function goInner(id, pushHistory){
     history.pushState({page:id},'','#'+id);
   }
 
-  // Toggle full-screen mode for blog
-  if(id === 'blog'){
-    document.body.classList.add('blog-mode');
-    document.getElementById('inner-content').style.padding = '0';
-  } else {
-    document.body.classList.remove('blog-mode');
-    document.getElementById('inner-content').style.padding = '';
-  }
-
   // Update top bar highlights
   document.querySelectorAll('.tbl,.tb-sub-item').forEach(function(el){el.classList.remove('on');});
   var tlMap={
@@ -779,22 +771,6 @@ document.querySelectorAll('.hn').forEach(function(el){
   });
   el.addEventListener('mouseleave',function(){
     preview.classList.remove('visible');
-  });
-});
-
-// ── BLOG INDEX HOVER PREVIEWS ──
-document.addEventListener('DOMContentLoaded',function(){
-  var links = document.querySelectorAll('.blog-entry-link');
-  var preview = document.getElementById('blog-preview');
-  if(!preview) return;
-  links.forEach(function(link){
-    link.addEventListener('mouseenter',function(){
-      preview.textContent = link.getAttribute('data-preview');
-      preview.classList.add('visible');
-    });
-    link.addEventListener('mouseleave',function(){
-      preview.classList.remove('visible');
-    });
   });
 });
 
