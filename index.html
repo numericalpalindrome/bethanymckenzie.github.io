@@ -89,21 +89,20 @@ body{font-family:var(--serif);font-size:13px;font-weight:300;line-height:1.6;col
 
 }
 
-/* Social cluster bottom */
 .home-social{
   position:absolute;
   bottom:0;left:0;right:0;
   display:flex;flex-wrap:wrap;gap:8px 18px;
-  padding:14px 6%;
-  background:rgba(0,0,0,0.28);
+  padding:16px 6%;
+  background:rgba(0,0,0,0.52);
   backdrop-filter:blur(4px);
 }
 .hs{
   font-family:var(--display);
-  font-size:7px;
+  font-size:9px;
   letter-spacing:0.12em;
   text-transform:uppercase;
-  color:rgba(255,255,255,0.5);
+  color:rgba(255,255,255,0.8);
   text-decoration:none;
   transition:color 0.2s;
 }
@@ -326,7 +325,7 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
   <div class="hn" style="top:18%;left:62%;" onclick="goInner('feed')" data-preview="All entries, chronological.">All Entries</div>
   <div class="hn" style="top:30%;left:7%;" onclick="goInner('bouquets')" data-preview="Sculptural works arising from research in plant pathology.">Pathogen<br>Bouquets</div>
   <div class="hn" style="top:38%;left:72%;" onclick="goInner('microscopy')" data-preview="Microscopy from the lab and field — coming soon.">Ambient<br>Microscopy</div>
-  <div class="hn" style="top:52%;left:38%;" onclick="goInner('leafprints')" data-preview="Photosynthesis leaf prints — coming soon.">Leaf<br>Prints</div>
+  <div class="hn" style="top:52%;left:38%;" onclick="goInner('leafprints')" data-preview="Photosynthesis leaf prints — coming soon.">Photosynthesis<br>Leaf Prints</div>
   <div class="hn" style="top:62%;left:8%;" onclick="goInner('blog')" data-preview="Writing, poetry and photography from the road and field.">Blog</div>
   <div class="hn" style="top:72%;left:60%;" onclick="goInner('cv')" data-preview="CV — Bethany McKenzie.">CV</div>
   <div class="hn" style="top:44%;left:12%;" onclick="goInner('about')" data-preview="About Bethany — artist, naturalist, biology technician.">About</div>
@@ -367,7 +366,7 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
       </div>
 
       <div class="tb-dropdown">
-        <span class="tbl" id="tbl-leafprints" onclick="goInner('leafprints')">Leaf Prints</span>
+        <span class="tbl" id="tbl-leafprints" onclick="goInner('leafprints')">Photosynthesis Leaf Prints</span>
       </div>
 
       <div class="tb-dropdown">
@@ -534,7 +533,7 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
       <img src="Screenshot_2026-04-04_at_12_06_40_AM.png" alt="Nathan, Patrice, Julian at the beach" onclick="openLightbox(this)">
     </div>
 
-    <div class="photo-block" style="max-width:360px;">
+    <div class="photo-block" style="max-width:240px;">
       <img src="Screenshot_2026-04-04_at_12_05_58_AM.png" alt="Salicornia sp. — glasswort, sea pickle" onclick="openLightbox(this)">
       <p class="photo-cap"><em>Salicornia</em> sp. (glasswort / sea pickle) — semi-aquatic, coastal, salty to the taste. A natural salt substitute.</p>
     </div>
