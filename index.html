@@ -56,6 +56,8 @@ body{font-family:var(--serif);font-size:13px;font-weight:300;line-height:1.6;col
   text-shadow:0 1px 8px rgba(0,0,0,0.5);
   transition:color 0.2s,text-shadow 0.2s;
   user-select:none;
+  padding:4px 2px;
+  touch-action:manipulation;
 }
 .hn:hover{
   color:#fff;
@@ -75,18 +77,16 @@ body{font-family:var(--serif);font-size:13px;font-weight:300;line-height:1.6;col
   text-shadow:0 2px 12px rgba(0,0,0,0.3);
   line-height:1.15;
   cursor:pointer;
-
 }
 .home-tagline{
   position:absolute;
   top:calc(7% + clamp(38px,6vw,68px));
   left:6%;
   font-family:var(--display);
-  font-size:8px;
+  font-size:clamp(8px,1.2vw,9px);
   letter-spacing:0.18em;
   text-transform:uppercase;
   color:rgba(255,255,255,0.55);
-
 }
 
 .home-social{
@@ -325,17 +325,47 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
   border-bottom:0.5px solid var(--ink-faint);
 }
 @media(max-width:700px){
-  .blog-grid{grid-template-columns:1fr;}
-}
-@media(max-width:700px){
+  /* Topbar */
   #topbar{padding:0 16px;}
-  #inner-content{padding:32px 20px 60px;}
-  .masonry{columns:2;}
   .tbl{padding:0 8px;font-size:6px;}
-  .blog-index{height:60vh;}
-  .blog-entry-link{font-size:10px;}
-  .hn{font-size:9px;}
+
+  /* Inner content */
+  #inner-content{padding:28px 18px 60px;}
+
+  /* Masonry — 2 cols on mobile */
+  .masonry{grid-template-columns:repeat(2,1fr);gap:10px;}
+
+  /* Blog grid — single col on mobile */
+  .blog-grid{grid-template-columns:1fr;}
+
+  /* Blog index */
+  .blog-index{height:70vh;}
+  .blog-entry-link{font-size:11px;line-height:1.3;}
+
+  /* Spread blog links so they don't overlap on narrow phones */
+  .blog-entry-link:nth-child(1){top:10% !important;left:6% !important;}
+  .blog-entry-link:nth-child(2){top:26% !important;left:52% !important;}
+  .blog-entry-link:nth-child(3){top:50% !important;left:6% !important;}
+  .blog-entry-link:nth-child(4){top:66% !important;left:52% !important;}
+  .blog-preview{bottom:10px;font-size:12px;}
+
+  /* Home */
+  .hn{font-size:11px;}
   .home-name{font-size:clamp(20px,7vw,36px);}
+  .home-tagline{font-size:9px;}
+  /* Push home-preview above social bar more safely */
+  .home-preview{bottom:88px;font-size:13px;}
+  /* Social bar — smaller gap on narrow screens */
+  .home-social{gap:6px 14px;padding:12px 5%;}
+
+  /* CV — year col wraps gracefully */
+  .cv-row{flex-wrap:wrap;gap:4px 20px;}
+  .cv-yr{min-width:auto !important;width:100%;padding-top:0;}
+  .cv-role{margin-top:2px;}
+
+  /* Lightbox — tighter padding on mobile */
+  .lightbox{padding:12px;}
+  .lb-close{top:10px;right:14px;font-size:26px;}
 }
 </style>
 </head>
@@ -560,10 +590,7 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
       <div class="bgitem">
         <img src="Screenshot_2026-04-04_at_12_06_40_AM.png" alt="Nathan, Patrice, Julian at the beach" onclick="openLightbox(this)">
       </div>
-      <div class="bgitem">
-        <img src="Screenshot_2026-04-04_at_12_05_58_AM.png" alt="Salicornia sp. — glasswort, sea pickle" onclick="openLightbox(this)">
-        <p class="bgcap"><em>Salicornia</em> sp. (glasswort / sea pickle) — semi-aquatic, coastal, salty to the taste. A natural salt substitute.</p>
-      </div>
+
       <div class="bgitem">
         <img src="Screenshot_2026-04-04_at_12_05_44_AM.png" alt="Person resting in the long open dormitory" onclick="openLightbox(this)">
       </div>
@@ -633,18 +660,9 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
         <img src="Screenshot_2026-04-04_at_12_25_56_AM.png" alt="Bethany at Judith Greenleaf's house, Northern California, light flare" onclick="openLightbox(this)">
         <p class="bgcap">Judith Greenleaf's house, Northern California.</p>
       </div>
-      <div class="bgitem">
-        <img src="Screenshot_2026-04-04_at_12_25_49_AM.png" alt="Bethany mirror selfie at Judith Greenleaf's house, Northern California" onclick="openLightbox(this)">
-        <p class="bgcap">Judith Greenleaf's house, Northern California. Mirrored bathroom wall.</p>
-      </div>
-      <div class="bgitem">
-        <img src="Screenshot_2026-04-04_at_12_25_18_AM.png" alt="Poison oak rash on face" onclick="openLightbox(this)">
-        <p class="bgcap">Fresh poison oak rash.</p>
-      </div>
-      <div class="bgitem">
-        <img src="Screenshot_2026-04-04_at_12_24_59_AM.png" alt="Bethany doing laundry at an RV park laundromat, Northern Oregon, longer hair" onclick="openLightbox(this)">
-        <p class="bgcap">Northern Oregon — laundromat at an RV park. Pre-haircut.</p>
-      </div>
+
+
+
     </div>
 
     <div class="coming-soon" style="margin-top:8px;"><div class="cs-dot"></div>More photos and writing coming soon</div>
@@ -792,8 +810,8 @@ function openLightbox(img){
   var lb=document.getElementById('lightbox');
   document.getElementById('lb-img').src=img.src;
   document.getElementById('lb-img').alt=img.alt;
-  var cap=img.closest('.mitem,.photo-block');
-  cap=cap&&cap.querySelector('.mcap,.photo-cap');
+  var cap=img.closest('.mitem,.photo-block,.bgitem');
+  cap=cap&&cap.querySelector('.mcap,.photo-cap,.bgcap');
   document.getElementById('lb-cap').textContent=cap?cap.textContent:'';
   lb.classList.add('open');
   document.body.style.overflow='hidden';
