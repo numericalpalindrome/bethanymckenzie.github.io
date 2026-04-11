@@ -99,6 +99,46 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 .coming-soon{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:0.5px solid var(--ink-faint);font-family:var(--display);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);}
 .cs-dot{width:6px;height:6px;border-radius:50%;background:var(--ink-faint);}
 
+/* ── BLOG INDEX ── */
+.blog-index{position:relative;width:100%;height:80vh;overflow:hidden;cursor:default;}
+.blog-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.1) brightness(0.9);}
+.blog-entry-link{
+  position:absolute;
+  font-family:var(--display);
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:rgba(255,255,255,0.85);
+  cursor:pointer;
+  line-height:1.4;
+  text-shadow:0 1px 8px rgba(0,0,0,0.4);
+  transition:color 0.2s,text-shadow 0.2s;
+  user-select:none;
+}
+.blog-entry-link:hover{
+  color:#fff;
+  text-shadow:0 0 20px rgba(255,45,120,0.8),0 1px 8px rgba(0,0,0,0.5);
+}
+.blog-preview{
+  position:absolute;
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:14px;
+  color:rgba(255,255,255,0.9);
+  text-shadow:0 1px 6px rgba(0,0,0,0.6);
+  text-align:center;
+  max-width:420px;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 0.25s;
+  padding:0 16px;
+}
+.blog-preview.visible{opacity:1;}
+
 .cv-sec{margin-bottom:36px;}
 .cv-sec-title{font-family:var(--display);font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pink);margin-bottom:14px;padding-bottom:8px;border-bottom:0.5px solid var(--ink-faint);}
 .cv-row{display:flex;gap:20px;margin-bottom:14px;}
@@ -290,13 +330,27 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
     <div class="coming-soon"><div class="cs-dot"></div>Work coming soon</div>
   </section>
 
-  <section id="page-blog" class="page">
-    <div class="proj-header"><h2>Blog</h2><p class="proj-meta">Writing, poetry &amp; photography</p></div>
-    <div class="landing-cards">
-      <div class="lcard" onclick="go('ethno')">Ethnobotanical Extravaganza →</div>
-      <div class="lcard" onclick="go('cycle-fl')">Florida to Georgia →</div>
-      <div class="lcard" onclick="go('cycle-nm')">New Mexico to Colorado →</div>
-      <div class="lcard" onclick="go('cycle-wa')">Washington to California →</div>
+  <section id="page-blog" class="page" style="padding:0;max-width:100%;margin:0;">
+    <div class="blog-index">
+      <img src="bg-dragonfly.png" class="blog-bg" alt="">
+
+      <div class="blog-entry-link" style="top:12%;left:8%;" onclick="go('ethno')" data-preview="A forest gathering, a dome in the pines, ethnobotany, and the plants that hold everything together.">
+        Ethnobotanical<br>Extravaganza
+      </div>
+
+      <div class="blog-entry-link" style="top:22%;left:58%;" onclick="go('cycle-fl')" data-preview="Cycling the southeast — Florida to Georgia. The heat, the road, the coast.">
+        Florida to<br>Georgia
+      </div>
+
+      <div class="blog-entry-link" style="top:52%;left:12%;" onclick="go('cycle-nm')" data-preview="Gavilan Farmstead, Valley of the Moon Ranch. Yaks, garlic, skulls on fences, and the high desert.">
+        New Mexico<br>to Colorado
+      </div>
+
+      <div class="blog-entry-link" style="top:65%;left:55%;" onclick="go('cycle-wa')" data-preview="The Redwoods, a WWOOF stay, stealth camping on the Washington coast, and a poison oak rash.">
+        Washington<br>to California
+      </div>
+
+      <div class="blog-preview" id="blog-preview"></div>
     </div>
   </section>
 
@@ -537,6 +591,23 @@ function closeLB(){
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB();});
+
+document.addEventListener('DOMContentLoaded', function(){
+  var links = document.querySelectorAll('.blog-entry-link');
+  var preview = document.getElementById('blog-preview');
+  links.forEach(function(link){
+    link.addEventListener('mouseenter', function(){
+      if(preview){
+        preview.textContent = link.getAttribute('data-preview');
+        preview.classList.add('visible');
+      }
+    });
+    link.addEventListener('mouseleave', function(){
+      if(preview) preview.classList.remove('visible');
+    });
+  });
+});
+
 ['microscopy','leafprints','blog','bouquets'].forEach(function(id){
   var sub=document.getElementById('sub-'+id);
   var arr=document.getElementById('ar-'+id);
