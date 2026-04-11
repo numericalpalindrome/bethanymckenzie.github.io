@@ -203,6 +203,9 @@ body{font-family:var(--serif);font-size:13px;font-weight:300;line-height:1.6;col
   flex:1;
   padding:44px 56px 80px;
   max-width:760px;
+  width:100%;
+  overflow-x:hidden;
+}
   margin:0 auto;
   width:100%;
 }
@@ -249,7 +252,7 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 .pullquote p{font-family:var(--serif);font-size:20px;font-weight:300;font-style:italic;color:var(--ink);line-height:1.65;}
 .photo-block{margin:28px 0;}
 .photo-block img{
-  width:100%;max-width:640px;display:block;
+  width:100%;max-width:100%;max-height:80vh;display:block;
   cursor:pointer;
   transition:opacity 0.2s,transform 0.2s;
 }
@@ -297,7 +300,35 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
 .lb-close:hover{color:#fff;}
 .lb-cap{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-style:italic;font-size:13px;color:rgba(255,255,255,0.6);text-align:center;max-width:480px;}
 
-/* Mobile */
+/* Blog photo grid */
+.blog-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  max-width:640px;
+  margin:28px 0;
+}
+.blog-grid.single{grid-template-columns:1fr;max-width:480px;}
+.bgitem{display:flex;flex-direction:column;}
+.bgitem img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  display:block;
+  cursor:pointer;
+  transition:opacity 0.2s,transform 0.2s;
+}
+.bgitem img:hover{opacity:0.88;transform:scale(1.01);}
+.bgcap{
+  font-family:var(--serif);font-style:italic;
+  font-size:11px;color:var(--ink-light);
+  margin-top:6px;line-height:1.4;
+  padding-bottom:4px;
+  border-bottom:0.5px solid var(--ink-faint);
+}
+@media(max-width:700px){
+  .blog-grid{grid-template-columns:1fr;}
+}
 @media(max-width:700px){
   #topbar{padding:0 16px;}
   #inner-content{padding:32px 20px 60px;}
@@ -521,37 +552,33 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
   <section id="page-ethno" class="page">
     <div class="proj-header"><h2>Ethnobotanical Extravaganza</h2><p class="proj-meta">Hostel in the Forest · Brunswick, Georgia · Blog</p></div>
 
-    <div class="section-div"></div>
-    <div class="photo-block">
-      <img src="Screenshot_2026-04-04_at_12_06_13_AM.png" alt="Plant walk guide in the saw palmetto" onclick="openLightbox(this)">
-    </div>
-    <div class="photo-block">
-      <img src="Screenshot_2026-04-04_at_12_06_55_AM.png" alt="Group on the plant walk, snag tree and Spanish moss" onclick="openLightbox(this)">
-    </div>
-
-    <div class="photo-block" style="max-width:360px;">
-      <img src="Screenshot_2026-04-04_at_12_06_40_AM.png" alt="Nathan, Patrice, Julian at the beach" onclick="openLightbox(this)">
-    </div>
-
-    <div class="photo-block" style="max-width:240px;">
-      <img src="Screenshot_2026-04-04_at_12_05_58_AM.png" alt="Salicornia sp. — glasswort, sea pickle" onclick="openLightbox(this)">
-      <p class="photo-cap"><em>Salicornia</em> sp. (glasswort / sea pickle) — semi-aquatic, coastal, salty to the taste. A natural salt substitute.</p>
-    </div>
-    <div class="section-div"></div>
-    <div class="photo-block">
-      <img src="Screenshot_2026-04-04_at_12_05_44_AM.png" alt="Person resting in the long open dormitory" onclick="openLightbox(this)">
-    </div>
-    <div class="photo-block">
-      <img src="Screenshot_2026-04-04_at_12_07_04_AM.png" alt="Communal sleeping space — bunk beds, painted floor" onclick="openLightbox(this)">
-    </div>
-    <div class="photo-block" style="max-width:520px;">
-      <img src="Screenshot_2026-04-04_at_12_06_05_AM.png" alt="Mural — To Feel Is To Love" onclick="openLightbox(this)">
-      <p class="photo-cap">Painted on the bunk wall — <em>To feel is to love.</em></p>
-    </div>
-    <div class="section-div"></div>
-
-    <div class="photo-block" style="max-width:380px;">
-      <img src="Screenshot_2026-04-04_at_12_05_51_AM.png" alt="Self-portrait on the way home" onclick="openLightbox(this)">
+    <div class="blog-grid">
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_06_13_AM.png" alt="Plant walk guide in the saw palmetto" onclick="openLightbox(this)">
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_06_55_AM.png" alt="Group on the plant walk, snag tree and Spanish moss" onclick="openLightbox(this)">
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_06_40_AM.png" alt="Nathan, Patrice, Julian at the beach" onclick="openLightbox(this)">
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_05_58_AM.png" alt="Salicornia sp. — glasswort, sea pickle" onclick="openLightbox(this)">
+        <p class="bgcap"><em>Salicornia</em> sp. (glasswort / sea pickle) — semi-aquatic, coastal, salty to the taste. A natural salt substitute.</p>
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_05_44_AM.png" alt="Person resting in the long open dormitory" onclick="openLightbox(this)">
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_07_04_AM.png" alt="Communal sleeping space — bunk beds, painted floor" onclick="openLightbox(this)">
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_06_05_AM.png" alt="Mural — To Feel Is To Love" onclick="openLightbox(this)">
+        <p class="bgcap">Painted on the bunk wall — <em>To feel is to love.</em></p>
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_05_51_AM.png" alt="Self-portrait on the way home" onclick="openLightbox(this)">
+      </div>
     </div>
   </section>
 
@@ -563,72 +590,66 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
 
   <section id="page-cycle-nm" class="page">
     <div class="proj-header"><h2>New Mexico to Colorado</h2><p class="proj-meta">Blog · Cycle Touring · Southwest USA</p></div>
-    
-    <div class="section-div"></div>
-    <div class="masonry">
-      <div class="mitem"><img src="Screenshot_2026-04-08_at_7_55_58_PM.png" alt="Goat at glass sliding door, New Mexico" onclick="openLightbox(this)"><p class="mcap">Gavilan Farmstead, Valley of the Moon Ranch.</p></div>
-      <div class="mitem"><img src="Screenshot_2026-04-08_at_7_56_15_PM.png" alt="Two goats through wire fence at sunset" onclick="openLightbox(this)"><p class="mcap">Gavilan Farmstead, Valley of the Moon Ranch.</p></div>
-      <div class="mitem"><img src="Screenshot_2026-04-08_at_7_54_48_PM.png" alt="Woman feeding black chickens" onclick="openLightbox(this)"><p class="mcap">Gavilan Farmstead, Valley of the Moon Ranch.</p></div>
-      <div class="mitem"><img src="Screenshot_2026-04-08_at_7_55_09_PM.png" alt="Ram skull on fence post, blue sky" onclick="openLightbox(this)"><p class="mcap">Gavilan Farmstead, Valley of the Moon Ranch.</p></div>
-      <div class="mitem"><img src="Screenshot_2026-04-08_at_7_55_28_PM.png" alt="Dark yak with long curved horns" onclick="openLightbox(this)"><p class="mcap">Gavilan Farmstead, Valley of the Moon Ranch.</p></div>
-      <div class="mitem"><img src="Screenshot_2026-04-08_at_7_55_46_PM.png" alt="Metechi garlic curing on rack" onclick="openLightbox(this)"><p class="mcap">Metechi garlic curing. Gavilan Farmstead, Valley of the Moon Ranch.</p></div>
+
+    <div class="blog-grid">
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-08_at_7_55_58_PM.png" alt="Goat at glass sliding door, New Mexico" onclick="openLightbox(this)">
+        <p class="bgcap">Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-08_at_7_56_15_PM.png" alt="Two goats through wire fence at sunset" onclick="openLightbox(this)">
+        <p class="bgcap">Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-08_at_7_54_48_PM.png" alt="Woman feeding black chickens" onclick="openLightbox(this)">
+        <p class="bgcap">Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-08_at_7_55_09_PM.png" alt="Ram skull on fence post, blue sky" onclick="openLightbox(this)">
+        <p class="bgcap">Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-08_at_7_55_28_PM.png" alt="Dark yak with long curved horns" onclick="openLightbox(this)">
+        <p class="bgcap">Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-08_at_7_55_46_PM.png" alt="Metechi garlic curing on rack" onclick="openLightbox(this)">
+        <p class="bgcap">Metechi garlic curing. Gavilan Farmstead, Valley of the Moon Ranch.</p>
+      </div>
     </div>
   </section>
 
   <section id="page-cycle-wa" class="page">
     <div class="proj-header"><h2>Washington to California</h2><p class="proj-meta">Blog · Cycle Touring · Pacific Coast</p></div>
 
-    <div class="photo-block">
-      <img src="Screenshot_2026-04-04_at_12_26_26_AM.png"
-           alt="Bethany and Erick Rockclub in the Redwoods, California"
-           onclick="openLightbox(this)">
-      <p class="photo-cap">With Erick Rockclub, hiking in the Redwoods.</p>
-    </div>
-
-    <div class="section-div"></div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:640px;margin:28px 0;">
-      <div>
-        <img src="Screenshot_2026-04-04_at_12_25_56_AM.png"
-             alt="Bethany at Judith Greenleaf's house, Northern California, light flare"
-             style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;cursor:pointer;transition:opacity 0.2s,transform 0.2s;" onmouseout="this.style.opacity=1;this.style.transform='';" onmouseover="this.style.opacity=0.88;this.style.transform='scale(1.01)'" onclick="openLightbox(this)">
-        <p class="photo-cap">Judith Greenleaf's house, Northern California.</p>
+    <div class="blog-grid">
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_26_26_AM.png" alt="Bethany and Erick Rockclub in the Redwoods, California" onclick="openLightbox(this)">
+        <p class="bgcap">With Erick Rockclub, hiking in the Redwoods.</p>
       </div>
-      <div>
-        <img src="Screenshot_2026-04-04_at_12_25_18_AM.png"
-             alt="Poison oak rash on face"
-             style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;cursor:pointer;transition:opacity 0.2s,transform 0.2s;" onmouseout="this.style.opacity=1;this.style.transform='';" onmouseover="this.style.opacity=0.88;this.style.transform='scale(1.01)'" onclick="openLightbox(this)">
-        <p class="photo-cap">Fresh poison oak rash.</p>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_25_06_AM.png" alt="Bethany in blue jacket inside hammock, Washington coast, stealth camping" onclick="openLightbox(this)">
+        <p class="bgcap">Washington. Stealth camping on the beach — shot from inside my hammock.</p>
       </div>
-    </div>
-
-    <div class="section-div"></div>
-
-    <div class="photo-block" style="max-width:400px;">
-      <img src="Screenshot_2026-04-04_at_12_25_06_AM.png"
-           alt="Bethany in blue jacket inside hammock, Washington coast, stealth camping"
-           onclick="openLightbox(this)">
-      <p class="photo-cap">Washington. Stealth camping on the beach — shot from inside my hammock.</p>
-    </div>
-
-    <div class="section-div"></div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:640px;margin:28px 0;">
-      <div>
-        <img src="Screenshot_2026-04-04_at_12_25_49_AM.png"
-             alt="Bethany mirror selfie at Judith Greenleaf's house, Northern California"
-             style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;cursor:pointer;transition:opacity 0.2s,transform 0.2s;" onmouseout="this.style.opacity=1;this.style.transform='';" onmouseover="this.style.opacity=0.88;this.style.transform='scale(1.01)'" onclick="openLightbox(this)">
-        <p class="photo-cap">Judith Greenleaf's house, Northern California. Mirrored bathroom wall.</p>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_25_56_AM.png" alt="Bethany at Judith Greenleaf's house, Northern California, light flare" onclick="openLightbox(this)">
+        <p class="bgcap">Judith Greenleaf's house, Northern California.</p>
       </div>
-      <div>
-        <img src="Screenshot_2026-04-04_at_12_24_59_AM.png"
-             alt="Bethany doing laundry at an RV park laundromat, Northern Oregon, longer hair"
-             style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;cursor:pointer;transition:opacity 0.2s,transform 0.2s;" onmouseout="this.style.opacity=1;this.style.transform='';" onmouseover="this.style.opacity=0.88;this.style.transform='scale(1.01)'" onclick="openLightbox(this)">
-        <p class="photo-cap">Northern Oregon — laundromat at an RV park. Pre-haircut.</p>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_25_49_AM.png" alt="Bethany mirror selfie at Judith Greenleaf's house, Northern California" onclick="openLightbox(this)">
+        <p class="bgcap">Judith Greenleaf's house, Northern California. Mirrored bathroom wall.</p>
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_25_18_AM.png" alt="Poison oak rash on face" onclick="openLightbox(this)">
+        <p class="bgcap">Fresh poison oak rash.</p>
+      </div>
+      <div class="bgitem">
+        <img src="Screenshot_2026-04-04_at_12_24_59_AM.png" alt="Bethany doing laundry at an RV park laundromat, Northern Oregon, longer hair" onclick="openLightbox(this)">
+        <p class="bgcap">Northern Oregon — laundromat at an RV park. Pre-haircut.</p>
       </div>
     </div>
 
-    <div class="coming-soon" style="margin-top:32px;"><div class="cs-dot"></div>More photos and writing coming soon</div>
+    <div class="coming-soon" style="margin-top:8px;"><div class="cs-dot"></div>More photos and writing coming soon</div>
   </section>
 
   <section id="page-about" class="page">
