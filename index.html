@@ -396,7 +396,7 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
 
   <!-- Scattered nav -->
   <div class="hn" style="top:18%;left:62%;" onclick="goInner('feed')" data-preview="All entries, chronological.">All Entries</div>
-  <div class="hn" style="top:30%;left:7%;" onclick="goInner('bouquets')" data-preview="Sculptural works arising from research in plant pathology.">Pathogen<br>Bouquets</div>
+  <div class="hn" style="top:30%;left:7%;" onclick="goInner('action')" data-preview="Sculptural works arising from research in plant pathology.">Pathogen<br>Bouquets</div>
   <div class="hn" style="top:38%;left:72%;" onclick="goInner('microscopy')" data-preview="Microscopy from the lab and field — coming soon.">Ambient<br>Microscopy</div>
   <div class="hn" style="top:52%;left:38%;" onclick="goInner('leafprints')" data-preview="Photosynthesis leaf prints — coming soon.">Photosynthesis<br>Leaf Prints</div>
   <div class="hn" style="top:62%;left:8%;" onclick="goInner('blog')" data-preview="Writing, poetry and photography from the road and field.">Blog</div>
@@ -429,7 +429,7 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
       <span class="tbl" id="tbl-feed" onclick="goInner('feed')">All Entries</span>
 
       <div class="tb-dropdown">
-        <span class="tbl" id="tbl-bouquets" onclick="goInner('bouquets')">Pathogen Bouquets</span>
+        <span class="tbl" id="tbl-bouquets" onclick="goInner('action')">Pathogen Bouquets</span>
         <div class="tb-sub">
           <div class="tb-sub-item" id="tsi-action" onclick="goInner('action')">Action Threshold</div>
         </div>
@@ -463,7 +463,7 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
 <section id="page-feed" class="page">
     <div class="proj-header"><h2>All Entries</h2><p class="proj-meta">Chronological record</p></div>
 
-    <div style="cursor:pointer;display:flex;gap:18px;padding:16px 0;border-top:0.5px solid var(--ink-faint);border-bottom:0.5px solid var(--ink-faint);" onclick="go('bouquets')">
+    <div style="cursor:pointer;display:flex;gap:18px;padding:16px 0;border-top:0.5px solid var(--ink-faint);border-bottom:0.5px solid var(--ink-faint);" onclick="goInner('action')">
       <div style="width:80px;min-width:80px;height:80px;overflow:hidden;">
         <img src="Screenshot_2026-04-08_at_7_48_55_PM.png" alt="Action Threshold" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
@@ -539,15 +539,6 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
         <div style="font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink-light);">The heat, the road, the coast.</div>
       </div>
     </div>
-  </section>
-
-  <section id="page-bouquets" class="page">
-    <div class="proj-header"><h2>Pathogen Bouquets</h2><p class="proj-meta">Sculpture · biological process · documentary art</p></div>
-    <p class="gallery-intro">Sculptural works arising from research in plant pathology.</p>
-    <div class="landing-cards">
-      <div class="lcard" onclick="goInner('action')">Action Threshold<br><span style="font-size:8px;opacity:0.6;font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:0;">2026 · Art About Agriculture</span></div>
-    </div>
-    <div class="coming-soon" style="margin-top:28px;"><div class="cs-dot"></div>More works coming soon</div>
   </section>
 
   <section id="page-action" class="page">
