@@ -336,37 +336,19 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
   max-width:640px;
   margin:28px 0;
 }
-.vcard{
-  display:block;
-  text-decoration:none;
+.vembed{
   position:relative;
-  overflow:hidden;
-  background:#000;
-}
-.vcard img{
-  display:block;
   width:100%;
-  aspect-ratio:16/9;
-  object-fit:cover;
-  transition:opacity 0.25s,transform 0.25s;
+  padding-bottom:56.25%;
+  height:0;
+  overflow:hidden;
 }
-.vcard.short img{
-  aspect-ratio:9/16;
-}
-.vcard:hover img{
-  opacity:0.82;
-  transform:scale(1.02);
-}
-.vcard-label{
+.vembed.short{padding-bottom:177.78%;}
+.vembed iframe{
   position:absolute;
-  bottom:0;left:0;right:0;
-  padding:20px 10px 8px;
-  background:linear-gradient(transparent,rgba(0,0,0,0.55));
-  font-family:var(--display);
-  font-size:7px;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.75);
+  top:0;left:0;
+  width:100%;height:100%;
+  border:none;
 }
 /* Inner page footer bar */
 #inner-footer{
@@ -649,14 +631,12 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
     <p class="gallery-intro">Live ambient microscopy projections from the lab and field.</p>
 
     <div class="video-grid">
-      <a class="vcard" href="https://www.youtube.com/watch?v=84Mh5XLXHfc&t=32s" target="_blank">
-        <img src="https://img.youtube.com/vi/84Mh5XLXHfc/mqdefault.jpg" alt="Ambient Microscopy I">
-        <span class="vcard-label">Ambient Microscopy I</span>
-      </a>
-      <a class="vcard" href="https://www.youtube.com/watch?v=khpfxJHNf1U" target="_blank">
-        <img src="https://img.youtube.com/vi/khpfxJHNf1U/mqdefault.jpg" alt="Ambient Microscopy II">
-        <span class="vcard-label">Ambient Microscopy II</span>
-      </a>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/84Mh5XLXHfc?start=32" title="Ambient Microscopy I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/khpfxJHNf1U" title="Ambient Microscopy II" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
   </section>
 
@@ -727,12 +707,12 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
     <div class="proj-header"><h2>Telluride Mushroom Festival 2021</h2><p class="proj-meta">Blog · Mycology · Colorado</p></div>
 
     <div class="video-grid" style="grid-template-columns:1fr 0.56fr;max-width:500px;">
-      <a class="vcard" href="https://www.youtube.com/watch?v=6W-w-WTm4vM&t=7s" target="_blank">
-        <img src="https://img.youtube.com/vi/6W-w-WTm4vM/mqdefault.jpg" alt="Telluride Mushroom Festival 2021">
-      </a>
-      <a class="vcard short" href="https://www.youtube.com/shorts/imN1LGSnJmU" target="_blank">
-        <img src="https://img.youtube.com/vi/imN1LGSnJmU/mqdefault.jpg" alt="Telluride Mushroom Festival — short">
-      </a>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/6W-w-WTm4vM?start=7" title="Telluride Mushroom Festival 2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vembed short">
+        <iframe src="https://www.youtube.com/embed/imN1LGSnJmU" title="Telluride — short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="coming-soon" style="margin-top:8px;"><div class="cs-dot"></div>Photos and writing coming soon</div>
@@ -742,18 +722,15 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
     <div class="proj-header"><h2>Florida to Georgia</h2><p class="proj-meta">Blog · Cycle Touring · Southeast USA</p></div>
 
     <div class="video-grid" style="grid-template-columns:1fr 1fr 0.56fr;max-width:780px;">
-      <a class="vcard" href="https://www.youtube.com/watch?v=JXjXAmD21NQ" target="_blank">
-        <img src="https://img.youtube.com/vi/JXjXAmD21NQ/mqdefault.jpg" alt="FL to GA — video 1">
-        <span class="vcard-label">WWOOFing Greenhouse</span>
-      </a>
-      <a class="vcard" href="https://www.youtube.com/watch?v=rLtMN_UtKlk" target="_blank">
-        <img src="https://img.youtube.com/vi/rLtMN_UtKlk/mqdefault.jpg" alt="FL to GA — video 2">
-        <span class="vcard-label">WWOOFing Greenhouse II</span>
-      </a>
-      <a class="vcard short" href="https://www.youtube.com/shorts/qGa6oBEndgQ" target="_blank">
-        <img src="https://img.youtube.com/vi/qGa6oBEndgQ/mqdefault.jpg" alt="FL to GA — short">
-        <span class="vcard-label">View</span>
-      </a>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/JXjXAmD21NQ" title="FL to GA — video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/rLtMN_UtKlk" title="FL to GA — video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vembed short">
+        <iframe src="https://www.youtube.com/embed/qGa6oBEndgQ" title="FL to GA — short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="coming-soon" style="margin-top:8px;"><div class="cs-dot"></div>Photos and writing coming soon</div>
@@ -763,15 +740,15 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
     <div class="proj-header"><h2>New Mexico to Colorado</h2><p class="proj-meta">Blog · Cycle Touring · Southwest USA</p></div>
 
     <div class="video-grid" style="grid-template-columns:1fr 1fr 0.56fr;max-width:780px;">
-      <a class="vcard" href="https://www.youtube.com/watch?v=xtU9OhUD8Z0" target="_blank">
-        <img src="https://img.youtube.com/vi/xtU9OhUD8Z0/mqdefault.jpg" alt="NM to CO — video 1">
-      </a>
-      <a class="vcard" href="https://www.youtube.com/watch?v=kgXedqF1cPw" target="_blank">
-        <img src="https://img.youtube.com/vi/kgXedqF1cPw/mqdefault.jpg" alt="NM to CO — video 2">
-      </a>
-      <a class="vcard short" href="https://www.youtube.com/shorts/Ut61jUjZIFA" target="_blank">
-        <img src="https://img.youtube.com/vi/Ut61jUjZIFA/mqdefault.jpg" alt="NM to CO — short">
-      </a>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/xtU9OhUD8Z0" title="NM to CO — video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/kgXedqF1cPw" title="NM to CO — video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vembed short">
+        <iframe src="https://www.youtube.com/embed/Ut61jUjZIFA" title="NM to CO — short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="blog-grid">
@@ -806,22 +783,18 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
     <div class="proj-header"><h2>Washington to California</h2><p class="proj-header">Blog · Cycle Touring · Pacific Coast</p></div>
 
     <div class="video-grid">
-      <a class="vcard" href="https://www.youtube.com/watch?v=-6NrkqCBGfQ" target="_blank">
-        <img src="https://img.youtube.com/vi/-6NrkqCBGfQ/mqdefault.jpg" alt="Cycling Hwy 101">
-        <span class="vcard-label">Cycling Hwy 101</span>
-      </a>
-      <a class="vcard" href="https://www.youtube.com/watch?v=sq-LDXmGnBY" target="_blank">
-        <img src="https://img.youtube.com/vi/sq-LDXmGnBY/mqdefault.jpg" alt="Hwy 101">
-        <span class="vcard-label">Hwy 101</span>
-      </a>
-      <a class="vcard" href="https://www.youtube.com/watch?v=aY_CIRx8NOs" target="_blank">
-        <img src="https://img.youtube.com/vi/aY_CIRx8NOs/mqdefault.jpg" alt="Redwood Sidequest">
-        <span class="vcard-label">Redwood Sidequest</span>
-      </a>
-      <a class="vcard" href="https://www.youtube.com/watch?v=Twjx9xeM0dw" target="_blank">
-        <img src="https://img.youtube.com/vi/Twjx9xeM0dw/mqdefault.jpg" alt="Devils Punchbowl">
-        <span class="vcard-label">Devils Punchbowl</span>
-      </a>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/-6NrkqCBGfQ" title="Cycling Hwy 101" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/sq-LDXmGnBY" title="Hwy 101" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/aY_CIRx8NOs" title="Redwood Sidequest" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vembed">
+        <iframe src="https://www.youtube.com/embed/Twjx9xeM0dw" title="Devils Punchbowl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="blog-grid">
