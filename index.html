@@ -490,6 +490,7 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
           <div class="tb-sub-item" id="tsi-fl" onclick="goInner('cycle-fl')">Florida to Georgia</div>
           <div class="tb-sub-item" id="tsi-nm" onclick="goInner('cycle-nm')">New Mexico to Colorado</div>
           <div class="tb-sub-item" id="tsi-wa" onclick="goInner('cycle-wa')">Washington to California</div>
+          <div class="tb-sub-item" id="tsi-telluride" onclick="goInner('telluride')">Telluride Mushroom Festival 2021</div>
         </div>
       </div>
 
@@ -566,6 +567,17 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
         <div style="font-family:var(--display);font-size:8px;letter-spacing:0.11em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px;">Video · Ambient Microscopy</div>
         <div style="font-family:var(--display);font-size:12px;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Ambient Microscopy II</div>
         <div style="font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink-light);">Live microscopy projection.</div>
+      </div>
+    </div>
+
+    <div style="cursor:pointer;display:flex;gap:18px;padding:16px 0;border-bottom:0.5px solid var(--ink-faint);" onclick="goInner('telluride')">
+      <div style="width:80px;min-width:80px;height:80px;overflow:hidden;">
+        <img src="https://img.youtube.com/vi/6W-w-WTm4vM/mqdefault.jpg" alt="Telluride Mushroom Festival 2021" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div>
+        <div style="font-family:var(--display);font-size:8px;letter-spacing:0.11em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px;">Blog · Mycology · 2021</div>
+        <div style="font-family:var(--display);font-size:12px;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Telluride Mushroom Festival 2021</div>
+        <div style="font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink-light);">Foraging, fungi, and the mountains.</div>
       </div>
     </div>
 
@@ -651,6 +663,10 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
         Washington<br>to California
       </div>
 
+      <div class="blog-entry-link" style="top:38%;left:35%;" onclick="go('telluride')" data-preview="Telluride Mushroom Festival 2021 — foraging, fungi, and the mountains.">
+        Telluride<br>Mushroom<br>Festival
+      </div>
+
       <div class="blog-preview" id="blog-preview"></div>
     </div>
   </section>
@@ -682,6 +698,21 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
         <img src="Screenshot_2026-04-04_at_12_05_51_AM.png" alt="Self-portrait on the way home" onerror="this.style.display='none'" onclick="openLightbox(this)">
       </div>
     </div>
+  </section>
+
+  <section id="page-telluride" class="page">
+    <div class="proj-header"><h2>Telluride Mushroom Festival 2021</h2><p class="proj-meta">Blog · Mycology · Colorado</p></div>
+
+    <div class="video-grid" style="grid-template-columns:1fr 0.56fr;max-width:500px;">
+      <a class="vcard" href="https://www.youtube.com/watch?v=6W-w-WTm4vM&t=7s" target="_blank">
+        <img src="https://img.youtube.com/vi/6W-w-WTm4vM/mqdefault.jpg" alt="Telluride Mushroom Festival 2021">
+      </a>
+      <a class="vcard short" href="https://www.youtube.com/shorts/imN1LGSnJmU" target="_blank">
+        <img src="https://img.youtube.com/vi/imN1LGSnJmU/mqdefault.jpg" alt="Telluride Mushroom Festival — short">
+      </a>
+    </div>
+
+    <div class="coming-soon" style="margin-top:8px;"><div class="cs-dot"></div>Photos and writing coming soon</div>
   </section>
 
   <section id="page-cycle-fl" class="page">
@@ -881,13 +912,13 @@ function goInner(id, pushHistory){
   var tlMap={
     'feed':'tbl-feed','bouquets':'tbl-bouquets','action':'tbl-bouquets',
     'microscopy':'tbl-microscopy','leafprints':'tbl-leafprints',
-    'blog':'tbl-blog','ethno':'tbl-blog',
+    'blog':'tbl-blog','ethno':'tbl-blog','telluride':'tbl-blog',
     'cycle-fl':'tbl-blog','cycle-nm':'tbl-blog','cycle-wa':'tbl-blog',
     'about':'tbl-about','cv':'tbl-cv'
   };
   var tiMap={
     'action':'tsi-action','ethno':'tsi-ethno',
-    'cycle-fl':'tsi-fl','cycle-nm':'tsi-nm','cycle-wa':'tsi-wa'
+    'cycle-fl':'tsi-fl','cycle-nm':'tsi-nm','cycle-wa':'tsi-wa','telluride':'tsi-telluride'
   };
   if(tlMap[id]&&document.getElementById(tlMap[id])){document.getElementById(tlMap[id]).classList.add('on');}
   if(tiMap[id]&&document.getElementById(tiMap[id])){document.getElementById(tiMap[id]).classList.add('on');}
