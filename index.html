@@ -360,7 +360,17 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
   cursor:pointer;
   transition:opacity 0.2s,transform 0.2s;
 }
+.bgitem img:not([src]), .bgitem img[src=""] {
+  display:none;
+}
 .bgitem img:hover{opacity:0.88;transform:scale(1.01);}
+/* Hide broken images gracefully */
+.bgitem img::before {
+  content: none;
+}
+.bgitem:has(img[alt]:not([src])), .bgitem:has(img[src=""]) {
+  display:none;
+}
 .bgcap{
   font-family:var(--serif);font-style:italic;
   font-size:11px;color:var(--ink-light);
@@ -887,6 +897,21 @@ document.querySelectorAll('.hn').forEach(function(el){
 
 // ── BLOG INDEX HOVER PREVIEWS ──
 document.addEventListener('DOMContentLoaded',function(){
+  // Collapse grid cells with broken images
+  document.querySelectorAll('.bgitem img').forEach(function(img){
+    img.addEventListener('error', function(){
+      this.style.display = 'none';
+      this.style.aspectRatio = 'unset';
+      this.style.height = '0';
+    });
+    // Handle already-errored images
+    if(img.complete && !img.naturalWidth){
+      img.style.display = 'none';
+      img.style.aspectRatio = 'unset';
+      img.style.height = '0';
+    }
+  });
+
   var links = document.querySelectorAll('.blog-entry-link');
   var preview = document.getElementById('blog-preview');
   if(!preview) return;
