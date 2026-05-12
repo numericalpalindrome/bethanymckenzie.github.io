@@ -368,6 +368,29 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
   text-transform:uppercase;
   color:rgba(255,255,255,0.75);
 }
+/* Inner page footer bar */
+#inner-footer{
+  display:flex;flex-wrap:wrap;gap:8px 18px;
+  padding:16px 56px;
+  background:rgba(40,40,50,0.72);
+  backdrop-filter:blur(4px);
+  margin-top:auto;
+  border-top:0.5px solid rgba(255,255,255,0.06);
+}
+#inner-footer a{
+  font-family:var(--display);
+  font-size:9px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.8);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+#inner-footer a:hover{color:var(--lilac);}
+#inner-footer a::after{content:' →';}
+@media(max-width:700px){
+  #inner-footer{padding:14px 20px;}
+}
 @media(max-width:700px){
   .video-grid{grid-template-columns:1fr;}
 }
@@ -863,6 +886,16 @@ body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
 
 
   </div>
+
+  <footer id="inner-footer">
+    <a href="https://buymeacoffee.com/BethanyMckenzie" target="_blank">Buy me a coffee</a>
+    <a href="https://www.etsy.com/shop/Faeaceae" target="_blank">Shop — Faeaceae</a>
+    <a href="https://www.instagram.com/scorpioid_cymes/" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/@viscerebral/videos" target="_blank">YouTube</a>
+    <a href="https://www.facebook.com/profile.php?id=61573179917656" target="_blank">Rogue Mycology Collective</a>
+    <a href="https://www.inaturalist.org/people/bethanymckenzie" target="_blank">iNaturalist</a>
+    <a href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank">Contact</a>
+  </footer>
 </div>
 
 <!-- Lightbox -->
