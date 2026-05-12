@@ -312,8 +312,11 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 body.blog-mode{background:transparent;}
 body.blog-mode #inner-content{padding:0 !important;max-width:100vw !important;}
 
-.blog-entry-link{position:absolute;font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--pink);cursor:pointer;line-height:1.4;text-shadow:0 1px 8px rgba(0,0,0,0.3);transition:color 0.2s,text-shadow 0.2s;user-select:none;}
-.blog-entry-link:hover{color:#fff;text-shadow:0 0 20px rgba(255,100,160,0.7),0 1px 8px rgba(0,0,0,0.5);}
+.blog-entry-link{position:absolute;font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--pink);cursor:pointer;line-height:1.4;text-shadow:0 1px 8px rgba(0,0,0,0.3);transition:color 0.2s,text-shadow 0.2s;user-select:none;animation:floatB 8.3s ease-in-out infinite;}
+.blog-entry-link:nth-child(2){animation:floatA 7.4s ease-in-out infinite;animation-delay:-3.1s;}
+.blog-entry-link:nth-child(3){animation:floatC 9.1s ease-in-out infinite;animation-delay:-5.7s;}
+.blog-entry-link:nth-child(4){animation:floatA 7.9s ease-in-out infinite;animation-delay:-1.8s;}
+.blog-entry-link:hover{color:#fff;text-shadow:0 0 20px rgba(255,100,160,0.7),0 1px 8px rgba(0,0,0,0.5);animation-play-state:paused;}
 .blog-preview{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(255,255,255,0.9);text-shadow:0 1px 6px rgba(0,0,0,0.6);text-align:center;max-width:420px;pointer-events:none;opacity:0;transition:opacity 0.25s;padding:0 16px;}
 .blog-preview.visible{opacity:1;}
 
