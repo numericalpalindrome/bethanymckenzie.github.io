@@ -124,6 +124,7 @@ body{font-family:var(--serif);font-size:13px;font-weight:300;line-height:1.6;col
   padding:16px 6%;
   background:rgba(22,38,62,0.82);
   backdrop-filter:blur(4px);
+  z-index:5;
 }
 .hs{
   font-family:var(--display);
@@ -423,6 +424,13 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
   <div class="home-name" onclick="showHome()">Bethany<br>McKenzie</div>
   <div class="home-tagline">Artist &amp; Naturalist</div>
 
+  <!-- Social cluster (must come before nav labels in DOM so backdrop-filter doesn't block clicks) -->
+  <div class="home-social">
+    <a class="hs" href="https://buymeacoffee.com/BethanyMckenzie" target="_blank">Buy me a coffee</a>
+    <a class="hs" href="https://www.youtube.com/@viscerebral/videos" target="_blank">YouTube</a>
+    <a class="hs" href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank">Contact</a>
+  </div>
+
   <!-- Scattered nav -->
   <div class="hn" style="top:18%;left:62%;" onclick="goInner('feed')" data-preview="All entries, chronological.">All Entries</div>
   <div class="hn" style="top:30%;left:7%;" onclick="goInner('action')" data-preview="Sculptural works arising from research in plant pathology.">Pathogen<br>Bouquets</div>
@@ -430,13 +438,6 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
   <div class="hn" style="top:52%;left:38%;" onclick="goInner('leafprints')" data-preview="Photosynthesis leaf prints — coming soon.">Photosynthesis<br>Leaf Prints</div>
   <div class="hn" style="top:44%;left:12%;" onclick="goInner('about')" data-preview="About Bethany — artist, naturalist, biology technician.">About</div>
   <div class="hn" style="top:62%;left:8%;" onclick="goInner('wip')" data-preview="Current projects and works in progress.">Works in<br>Progress</div>
-
-  <!-- Social cluster -->
-  <div class="home-social">
-    <a class="hs" href="https://buymeacoffee.com/BethanyMckenzie" target="_blank">Buy me a coffee</a>
-    <a class="hs" href="https://www.youtube.com/@viscerebral/videos" target="_blank">YouTube</a>
-    <a class="hs" href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank">Contact</a>
-  </div>
 
   <div class="home-preview" id="home-preview"></div>
 </div>
