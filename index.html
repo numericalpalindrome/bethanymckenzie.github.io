@@ -74,6 +74,7 @@ body{font-family:var(--serif);font-size:13px;font-weight:300;line-height:1.6;col
   text-shadow:0 1px 8px rgba(0,0,0,0.5);
   transition:color 0.2s,text-shadow 0.2s;
   user-select:none;
+  z-index:10;
   animation:floatA 7s ease-in-out infinite;
 }
 .hn:nth-child(2){animation:floatB 8.5s ease-in-out infinite;animation-delay:-2.1s;}
@@ -427,7 +428,6 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
   <div class="hn" style="top:30%;left:7%;" onclick="goInner('action')" data-preview="Sculptural works arising from research in plant pathology.">Pathogen<br>Bouquets</div>
   <div class="hn" style="top:38%;left:72%;" onclick="goInner('microscopy')" data-preview="Microscopy from the lab and field — coming soon.">Ambient<br>Microscopy</div>
   <div class="hn" style="top:52%;left:38%;" onclick="goInner('leafprints')" data-preview="Photosynthesis leaf prints — coming soon.">Photosynthesis<br>Leaf Prints</div>
-  <div class="hn" style="top:72%;left:60%;" onclick="goInner('cv')" data-preview="CV — Bethany McKenzie.">CV</div>
   <div class="hn" style="top:44%;left:12%;" onclick="goInner('about')" data-preview="About Bethany — artist, naturalist, biology technician.">About</div>
   <div class="hn" style="top:62%;left:8%;" onclick="goInner('wip')" data-preview="Current projects and works in progress.">Works in<br>Progress</div>
 
@@ -471,7 +471,6 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 
       <span class="tbl" id="tbl-about" onclick="goInner('about')">About</span>
       <span class="tbl" id="tbl-wip" onclick="goInner('wip')">Works in Progress</span>
-      <span class="tbl" id="tbl-cv" onclick="goInner('cv')">CV</span>
     </div>
   </nav>
 
@@ -545,37 +544,6 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
     <div class="coming-soon"><div class="cs-dot"></div>About Me text coming soon</div>
   </section>
 
-  <section id="page-cv" class="page">
-    <div class="proj-header"><h2>CV</h2><p class="proj-meta">Bethany McKenzie</p></div>
-    <div class="cv-sec">
-      <div class="cv-sec-title">Work Experience</div>
-      <div class="cv-row"><div class="cv-yr">2024–</div><div><div class="cv-role">Biology Technician I</div><div class="cv-place">Southern Oregon Research and Extension Center (SOREC) · Central Point, OR</div><div class="cv-desc">Applied plant pathology research on pear and grape pathogens. Fungal culturing, microscopy-based identification, DNA extraction, PCR workflows.</div></div></div>
-      <div class="cv-row"><div class="cv-yr">2023–24</div><div><div class="cv-role">Undergraduate Research Assistant</div><div class="cv-place">Southern Oregon Research and Extension Center (SOREC) · Central Point, OR</div><div class="cv-desc">Plant pathology research — sample collection, preparation, and data organisation.</div></div></div>
-      <div class="cv-row"><div class="cv-yr">2022–25</div><div><div class="cv-role">Tea Server &amp; Spa Attendant</div><div class="cv-place">Chozu Bath &amp; Tea Gardens · Ashland, OR</div></div></div>
-      <div class="cv-row"><div class="cv-yr">2021–24</div><div><div class="cv-role">Biology Stockroom Assistant</div><div class="cv-place">Southern Oregon University · Ashland, OR</div><div class="cv-desc">Prepared laboratory equipment for undergraduate biology courses.</div></div></div>
-      <div class="cv-row"><div class="cv-yr">2021–24</div><div><div class="cv-role">Chemistry Stockroom Assistant</div><div class="cv-place">Southern Oregon University · Ashland, OR</div><div class="cv-desc">Prepared laboratory equipment for undergraduate chemistry courses.</div></div></div>
-      <div class="cv-row"><div class="cv-yr">2019–21</div><div><div class="cv-role">Production Manager</div><div class="cv-place">Pickled Planet · Ashland, OR</div><div class="cv-desc">Managed production of raw cultured vegetables and fermented foods.</div></div></div>
-      <div class="cv-row"><div class="cv-yr">2018–19</div><div><div class="cv-role">Kennel Technician</div><div class="cv-place">Alaqua Animal Refuge · Freeport, FL</div></div></div>
-      <div class="cv-row"><div class="cv-yr">2016, 2014</div><div><div class="cv-role">WWOOF Farm Intern</div><div class="cv-place">Valley of the Moon Ranch · Lindrith, NM</div><div class="cv-desc">Farming and homesteading work including animal husbandry, garlic cultivation, and general farm maintenance.</div></div></div>
-      <div class="cv-row"><div class="cv-yr">2017, 2014</div><div><div class="cv-role">WWOOF Farm Intern</div><div class="cv-place">Early Bird Farms · Hodges, SC</div></div></div>
-      <div class="cv-row"><div class="cv-yr">2014–15</div><div><div class="cv-role">Juice Bar Barista</div><div class="cv-place">For the Health of It · Blue Mountain Beach, FL</div></div></div>
-    </div>
-    <div class="cv-sec">
-      <div class="cv-sec-title">Education</div>
-      <div class="cv-row"><div class="cv-yr">2024</div><div><div class="cv-role">Bachelor of Science in Biology · Minor in Chemistry</div><div class="cv-place">Southern Oregon University · Ashland, OR</div><div class="cv-desc">Capstone Thesis: Trait variation in an endemic grasshopper species across an elevation gradient, including analysis of gut microbial diversity.</div><div class="cv-desc" style="margin-top:4px;">Ecology · Genetics · Evolution · Microbiology · Bioinformatics · Environmental Physiology · Vascular Plant ID / Field Botany · Organic Chemistry · Organic Spectroscopy</div></div></div>
-    </div>
-    <div class="cv-sec">
-      <div class="cv-sec-title">Exhibitions &amp; Artistic Practice</div>
-      <div class="cv-row"><div class="cv-yr">2026</div><div><div class="cv-role">Action Threshold</div><div class="cv-place">Art About Agriculture — Touring Exhibition</div><div class="cv-desc">Sculpture.</div></div></div>
-    </div>
-    <div class="cv-sec">
-      <div class="cv-sec-title">Technical Skills</div>
-      <div class="cv-row"><div class="cv-yr" style="font-size:10px;min-width:100px;">Molecular Biology</div><div class="cv-desc">DNA extraction, PCR amplification, gel electrophoresis, sample preparation</div></div>
-      <div class="cv-row"><div class="cv-yr" style="font-size:10px;min-width:100px;">Microbiology &amp; Mycology</div><div class="cv-desc">Fungal isolation and culturing, bacterial culturing, sterile technique, microscopy</div></div>
-      <div class="cv-row"><div class="cv-yr" style="font-size:10px;min-width:100px;">Field Research</div><div class="cv-desc">Plant disease monitoring, experimental plot work, specimen collection, phenological observation</div></div>
-      <div class="cv-row"><div class="cv-yr" style="font-size:10px;min-width:100px;">Computing</div><div class="cv-desc">Microsoft Office, Google Workspace, Dropbox, Zoom</div></div>
-    </div>
-  </section>
 
 
   </div>
@@ -626,7 +594,7 @@ function goInner(id, pushHistory){
     'feed':'tbl-feed','bouquets':'tbl-bouquets','action':'tbl-bouquets',
     'microscopy':'tbl-microscopy','leafprints':'tbl-leafprints',
     'wip':'tbl-wip',
-    'about':'tbl-about','cv':'tbl-cv'
+    'about':'tbl-about'
   };
   var tiMap={
     'action':'tsi-action'
