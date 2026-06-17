@@ -427,7 +427,6 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
   <!-- Social cluster (must come before nav labels in DOM so backdrop-filter doesn't block clicks) -->
   <div class="home-social">
     <a class="hs" href="https://buymeacoffee.com/BethanyMckenzie" target="_blank">Buy me a coffee</a>
-    <a class="hs" href="https://www.youtube.com/@viscerebral/videos" target="_blank">YouTube</a>
     <a class="hs" href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank">Contact</a>
   </div>
 
@@ -551,7 +550,6 @@ h1,h2,h3{font-family:var(--display);color:var(--pink);text-transform:uppercase;l
 
   <footer id="inner-footer">
     <a href="https://buymeacoffee.com/BethanyMckenzie" target="_blank">Buy me a coffee</a>
-    <a href="https://www.youtube.com/@viscerebral/videos" target="_blank">YouTube</a>
     <a href="https://mail.google.com/mail/?view=cm&to=mckenziebethany8@gmail.com" target="_blank">Contact</a>
   </footer>
 </div>
@@ -571,7 +569,7 @@ function showHome(pushHistory){
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   window.scrollTo(0,0);
   if(pushHistory !== false){
-    history.pushState({page:'home'},'','#home');
+    try{ history.pushState({page:'home'},'','#home'); }catch(e){}
   }
 }
 
@@ -586,7 +584,7 @@ function goInner(id, pushHistory){
   window.scrollTo(0,0);
 
   if(pushHistory !== false){
-    history.pushState({page:id},'','#'+id);
+    try{ history.pushState({page:id},'','#'+id); }catch(e){}
   }
 
   // Update top bar highlights
@@ -618,7 +616,7 @@ window.addEventListener('popstate', function(e){
 });
 
 // Set initial history entry on page load
-history.replaceState({page:'home'},'','#home');
+try{ history.replaceState({page:'home'},'','#home'); }catch(e){}
 
 // ── HOME HOVER PREVIEWS ──
 document.querySelectorAll('.hn').forEach(function(el){
